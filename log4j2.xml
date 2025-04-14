@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+ 
+    <Properties>
+        <Property name="LOG_PATTERN">%d{yyyy/MM/dd HH:mm:ss.SSS} %p %t %c{1.} %m%n</Property>
+        <Property name="APP_LOG_ROOT">logs</Property>
+    </Properties>
+ 
+    <Appenders>	
+         
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}" charset="UTF-8"/>
+        </Console>
+        <!-- Debug Logging -->
+        <RollingFile name="file" fileName="${APP_LOG_ROOT}/PiledriverKing.log"
+                     filePattern="${APP_LOG_ROOT}/PiledriverKing.%i.log">
+ 
+            <!-- Matches only DEBUG level -->
+            <LevelRangeFilter minLevel="FATAL" maxLevel="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+ 
+            <PatternLayout pattern="${LOG_PATTERN}" charset="UTF-8"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="4 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+              
+    </Appenders>
+ 
+    <Loggers>
+	
+        <Root level="all">
+            <AppenderRef ref="file"/>
+            <AppenderRef ref="stdout" />
+        </Root>
+ 
+    </Loggers>
+ 
+</Configuration>

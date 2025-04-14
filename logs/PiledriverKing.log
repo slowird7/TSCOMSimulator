@@ -1,0 +1,1180 @@
+2025/04/06 21:13:38.044 DEBUG JavaFX Application Thread c.COMPortConnection id: COM1
+2025/04/06 21:13:51.622 DEBUG JavaFX Application Thread c.COMPortConnection COMPort: NULL
+2025/04/06 21:14:00.843 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/06 21:14:02.313 ERROR JavaFX Application Thread c.COMPortConnection Error Message
+jssc.SerialPortException: Port name - NULL; Method name - openPort(); Exception type - Port not found.
+	at jssc.SerialPort.openPort(SerialPort.java:168) ~[jssc-2.9.2.jar:?]
+	at connection.COMPortConnection.open(COMPortConnection.java:113) ~[classes/:?]
+	at connection.COMPortConnection.open(COMPortConnection.java:94) ~[classes/:?]
+	at application.MainController.onBtnConnectClicked(MainController.java:23) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:77) ~[javafx-base-17.0.2-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:275) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1854) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1724) ~[javafx-fxml-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8792) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3897) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1878) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2623) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:557) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:943) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/06 21:14:02.521 ERROR JavaFX Application Thread c.COMPortConnection Error Message
+jssc.SerialPortException: Port name - NULL; Method name - addEventListener(); Exception type - Port not opened.
+	at jssc.SerialPort.checkPortOpened(SerialPort.java:879) ~[jssc-2.9.2.jar:?]
+	at jssc.SerialPort.addEventListener(SerialPort.java:1008) ~[jssc-2.9.2.jar:?]
+	at jssc.SerialPort.addEventListener(SerialPort.java:976) ~[jssc-2.9.2.jar:?]
+	at connection.COMPortConnection.open(COMPortConnection.java:123) ~[classes/:?]
+	at connection.COMPortConnection.open(COMPortConnection.java:94) ~[classes/:?]
+	at application.MainController.onBtnConnectClicked(MainController.java:23) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:77) ~[javafx-base-17.0.2-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:275) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1854) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1724) ~[javafx-fxml-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8792) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3897) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1878) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2623) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:557) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:943) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/06 21:14:06.446 ERROR JavaFX Application Thread c.COMPortConnection Error Message
+connection.COMPortConnection$SerialPortException: Port name - NULL; Method name - addEventListener(); Exception type - Port not opened.
+	at connection.COMPortConnection.open(COMPortConnection.java:141) ~[classes/:?]
+	at connection.COMPortConnection.open(COMPortConnection.java:94) ~[classes/:?]
+	at application.MainController.onBtnConnectClicked(MainController.java:23) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:77) ~[javafx-base-17.0.2-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:275) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1854) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1724) ~[javafx-fxml-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8792) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3897) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1878) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2623) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:557) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:943) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/06 21:20:57.444 DEBUG JavaFX Application Thread c.COMPortConnection id: COM1
+2025/04/06 21:21:00.066 DEBUG JavaFX Application Thread c.COMPortConnection COMPort: NULL
+2025/04/06 21:21:30.117 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/06 21:43:56.469 DEBUG JavaFX Application Thread c.COMPortConnection id: COM1
+2025/04/06 21:44:02.150 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/06 21:45:01.481 ERROR JavaFX Application Thread c.COMPortConnection Error Message
+jssc.SerialPortException: Port name - COM1; Method name - openPort(); Exception type - Port not found.
+	at jssc.SerialPort.openPort(SerialPort.java:168) ~[jssc-2.9.2.jar:?]
+	at connection.COMPortConnection.open(COMPortConnection.java:108) ~[classes/:?]
+	at connection.COMPortConnection.open(COMPortConnection.java:89) ~[classes/:?]
+	at application.MainController.onBtnConnectClicked(MainController.java:23) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:77) ~[javafx-base-17.0.2-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:275) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1854) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1724) ~[javafx-fxml-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8792) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3897) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1878) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2623) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:557) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:943) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/06 21:45:44.822 DEBUG JavaFX Application Thread c.COMPortConnection id: COM1
+2025/04/06 21:45:47.737 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/06 21:45:59.410 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM1
+2025/04/06 21:46:13.602 DEBUG JavaFX Application Thread c.COMPortConnection *** port.close() 
+2025/04/06 21:46:15.638 DEBUG JavaFX Application Thread c.COMPortConnection id: COM1
+2025/04/06 21:46:15.639 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/06 21:46:15.649 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM1
+2025/04/06 21:46:17.639 DEBUG JavaFX Application Thread c.COMPortConnection *** port.close() 
+2025/04/06 21:46:18.958 DEBUG JavaFX Application Thread c.COMPortConnection id: COM1
+2025/04/06 21:46:18.959 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/06 21:46:18.966 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM1
+2025/04/06 21:46:22.803 DEBUG JavaFX Application Thread c.COMPortConnection *** port.close() 
+2025/04/06 21:48:18.204 DEBUG JavaFX Application Thread c.COMPortConnection id: COM1
+2025/04/06 21:48:18.212 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/06 21:48:19.372 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM1
+2025/04/06 21:48:55.984 DEBUG EventThread COM1 c.COMPortConnection CTS - ON
+2025/04/06 21:49:13.955 DEBUG EventThread COM1 c.COMPortConnection DSR - ON
+2025/04/06 21:50:59.701 DEBUG JavaFX Application Thread c.COMPortConnection *** port.close() 
+2025/04/08 23:55:43.920 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/08 23:55:43.925 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/09 00:03:45.037 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/09 00:03:50.239 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/09 00:05:27.037 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/09 00:05:27.043 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/09 00:05:27.043 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/09 00:05:27.045 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/09 00:06:14.469 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/09 00:06:14.474 DEBUG Responser c.COMPortConnection Start response thread.
+2025/04/12 12:55:25.558 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 12:55:25.572 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 12:55:25.572 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 12:55:25.574 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 12:55:26.181 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 12:55:26.187 DEBUG Responser c.COMPortConnection Start response thread.
+2025/04/12 13:23:04.639 DEBUG EventThread COM2 c.COMPortConnection CTS - ON
+2025/04/12 13:23:05.335 DEBUG EventThread COM2 c.COMPortConnection DSR - ON
+2025/04/12 13:37:09.849 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 13:37:09.855 DEBUG JavaFX Application Thread c.COMPortConnection id: COM1
+2025/04/12 13:37:09.855 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 13:37:09.857 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 13:37:10.498 ERROR JavaFX Application Thread c.COMPortConnection Error Message
+jssc.SerialPortException: Port name - COM1; Method name - openPort(); Exception type - Port busy.
+	at jssc.SerialPort.openPort(SerialPort.java:165) ~[jssc-2.9.2.jar:?]
+	at connection.COMPortConnection.open(COMPortConnection.java:116) ~[classes/:?]
+	at connection.COMPortConnection.open(COMPortConnection.java:91) ~[classes/:?]
+	at connection.TSSimulator.open(TSSimulator.java:58) ~[classes/:?]
+	at application.MainController.onBtnConnectClicked(MainController.java:92) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:77) ~[javafx-base-17.0.2-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:275) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1854) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1724) ~[javafx-fxml-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8792) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3897) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1878) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2623) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:557) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:943) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/12 13:37:10.527 ERROR JavaFX Application Thread c.COMPortConnection Error Message
+jssc.SerialPortException: Port name - COM1; Method name - closePort(); Exception type - Port not opened.
+	at jssc.SerialPort.checkPortOpened(SerialPort.java:879) ~[jssc-2.9.2.jar:?]
+	at jssc.SerialPort.closePort(SerialPort.java:1089) ~[jssc-2.9.2.jar:?]
+	at connection.COMPortConnection.open(COMPortConnection.java:122) ~[classes/:?]
+	at connection.COMPortConnection.open(COMPortConnection.java:91) ~[classes/:?]
+	at connection.TSSimulator.open(TSSimulator.java:58) ~[classes/:?]
+	at application.MainController.onBtnConnectClicked(MainController.java:92) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:77) ~[javafx-base-17.0.2-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:275) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1854) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1724) ~[javafx-fxml-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8792) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3897) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1878) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2623) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:557) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:943) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/12 13:37:10.533 ERROR JavaFX Application Thread c.COMPortConnection Error Message
+connection.COMPortConnection$SerialPortException: Port name - COM1; Method name - closePort(); Exception type - Port not opened.
+	at connection.COMPortConnection.open(COMPortConnection.java:144) ~[classes/:?]
+	at connection.COMPortConnection.open(COMPortConnection.java:91) ~[classes/:?]
+	at connection.TSSimulator.open(TSSimulator.java:58) ~[classes/:?]
+	at application.MainController.onBtnConnectClicked(MainController.java:92) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:77) ~[javafx-base-17.0.2-win.jar:?]
+	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:275) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:84) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1854) ~[javafx-fxml-17.0.2-win.jar:?]
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1724) ~[javafx-fxml-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Node.fireEvent(Node.java:8792) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.control.Button.fire(Button.java:203) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274) ~[javafx-controls-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74) ~[javafx-base-17.0.2-win.jar:?]
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.event.Event.fireEvent(Event.java:198) ~[javafx-base-17.0.2-win.jar:?]
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3897) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1878) ~[javafx-graphics-17.0.2-win.jar:?]
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2623) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:411) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:301) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:450) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:424) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:449) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:557) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.View.notifyMouse(View.java:943) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/12 13:37:10.541 WARN JavaFX Application Thread e.TSGeneralException COMポートCOM1に接続できません
+2025/04/12 13:37:16.362 INFO TSSimulator c.TSSimulator TSSimulator::process thread stopped.
+2025/04/12 13:37:50.805 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 13:37:50.810 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 13:37:50.810 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 13:37:50.812 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 13:37:51.463 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 13:37:51.467 DEBUG Responser c.COMPortConnection Start response thread.
+2025/04/12 13:38:05.736 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 13:38:31.417 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 13:50:03.558 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 13:50:03.563 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 13:50:03.563 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 13:50:03.565 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 13:50:04.264 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 13:50:04.267 DEBUG Responser c.COMPortConnection Start response thread.
+2025/04/12 13:50:12.106 DEBUG EventThread COM2 c.COMPortConnection CTS - ON
+2025/04/12 13:50:12.107 DEBUG EventThread COM2 c.COMPortConnection DSR - ON
+2025/04/12 13:50:12.615 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 13:51:40.234 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 13:58:40.898 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 13:58:40.903 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 13:58:40.903 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 13:58:40.905 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 13:58:41.555 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 13:58:41.564 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 13:59:06.050 INFO JavaFX Application Thread c.COMPortConnection stop> gonna stop.
+2025/04/12 13:59:06.052 DEBUG JavaFX Application Thread c.COMPortConnection *** port.close() 
+2025/04/12 13:59:06.094 INFO Responser c.COMPortConnection TSSimulator::response thread stopped.
+2025/04/12 13:59:06.434 INFO TSSimulator c.TSSimulator TSSimulator::process thread stopped.
+2025/04/12 13:59:18.002 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 13:59:18.002 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 13:59:18.003 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 13:59:18.003 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 13:59:18.009 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 13:59:18.010 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 13:59:44.811 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 14:00:05.496 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 14:01:23.003 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 14:01:23.008 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 14:01:23.008 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 14:01:23.010 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 14:01:23.658 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 14:01:23.668 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 14:01:32.098 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 14:01:54.500 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:
+2025/04/12 14:04:00.152 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 14:04:00.158 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 14:04:00.158 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 14:04:00.160 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 14:04:00.828 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 14:04:00.837 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 14:04:03.981 DEBUG EventThread COM2 c.COMPortConnection CTS - ON
+2025/04/12 14:04:03.985 DEBUG EventThread COM2 c.COMPortConnection DSR - ON
+2025/04/12 14:04:04.475 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 14:04:12.886 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:
+2025/04/12 14:06:32.483 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 14:06:32.488 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 14:06:32.488 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 14:06:32.490 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 14:06:33.125 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 14:06:33.133 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 14:06:36.847 DEBUG EventThread COM2 c.COMPortConnection CTS - ON
+2025/04/12 14:06:36.849 DEBUG EventThread COM2 c.COMPortConnection DSR - ON
+2025/04/12 14:06:37.356 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 14:06:41.130 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:
+2025/04/12 14:06:41.221 DEBUG EventThread COM2 c.COMPortConnection received line [A]
+2025/04/12 14:06:41.754 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:A MS05AXII,KJ0416,0327,0150,33
+
+2025/04/12 14:09:19.255 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 14:09:19.261 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 14:09:19.261 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 14:09:19.262 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 14:09:19.901 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 14:09:19.905 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 14:09:22.280 DEBUG EventThread COM2 c.COMPortConnection CTS - ON
+2025/04/12 14:09:22.282 DEBUG EventThread COM2 c.COMPortConnection DSR - ON
+2025/04/12 14:09:22.790 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 14:09:23.420 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:
+2025/04/12 14:09:23.496 DEBUG EventThread COM2 c.COMPortConnection received line [A]
+2025/04/12 14:09:24.029 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:A MS05AXII,KJ0416,0327,0150,33
+
+2025/04/12 14:40:14.745 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 14:40:14.750 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 14:40:14.750 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 14:40:14.751 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 14:40:15.398 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 14:40:15.402 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 14:40:18.131 DEBUG EventThread COM2 c.COMPortConnection CTS - ON
+2025/04/12 14:40:18.133 DEBUG EventThread COM2 c.COMPortConnection DSR - ON
+2025/04/12 14:40:18.639 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 14:40:18.908 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:
+2025/04/12 14:40:18.941 DEBUG EventThread COM2 c.COMPortConnection received line [A]
+2025/04/12 14:40:19.511 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:A MS05AXII,KJ0416,0327,0150
+
+2025/04/12 14:42:25.825 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 14:42:26.260 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:
+2025/04/12 14:42:26.332 DEBUG EventThread COM2 c.COMPortConnection received line [A]
+2025/04/12 14:42:26.861 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:A MS05AXII,KJ0416,0327,0150
+
+2025/04/12 14:43:18.676 DEBUG EventThread COM2 c.COMPortConnection received line [A]
+2025/04/12 14:43:19.086 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:A MS05AXII,KJ0416,0327,0150
+
+2025/04/12 14:43:35.741 DEBUG EventThread COM2 c.COMPortConnection received line [Da]
+2025/04/12 14:54:53.793 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 14:54:53.800 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 14:54:53.800 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 14:54:53.802 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 14:54:54.537 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 14:54:54.540 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 14:55:01.482 DEBUG EventThread COM2 c.COMPortConnection received line [A]
+2025/04/12 14:55:02.048 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:A MS05AXII,KJ0416,0327,0150
+
+2025/04/12 14:55:08.747 DEBUG EventThread COM2 c.COMPortConnection received line [Da]
+2025/04/12 14:55:09.162 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:Da 0.000000,0.000000,0.000000
+2025/04/12 14:55:54.300 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 14:55:54.830 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:
+2025/04/12 14:56:17.586 DEBUG EventThread COM2 c.COMPortConnection received line [A]
+2025/04/12 14:56:17.961 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:A MS05AXII,KJ0416,0327,0150
+
+2025/04/12 14:56:22.916 DEBUG EventThread COM2 c.COMPortConnection received line [*R]
+2025/04/12 14:59:15.894 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 14:59:15.902 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 14:59:15.903 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 14:59:15.905 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 14:59:16.782 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 14:59:16.788 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 14:59:24.952 DEBUG EventThread COM2 c.COMPortConnection received line [Da]
+2025/04/12 14:59:25.799 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:Da 0.000000,0.000000,0.000000,00
+2025/04/12 15:01:14.473 DEBUG EventThread COM2 c.COMPortConnection received line [Df]
+2025/04/12 15:02:29.707 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 15:02:29.715 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 15:02:29.715 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 15:02:29.717 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 15:02:30.519 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 15:02:30.523 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 15:02:32.237 DEBUG EventThread COM2 c.COMPortConnection received line [Df]
+2025/04/12 15:02:33.027 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:Df 0.000,0.000,0.000
+
+2025/04/12 15:02:42.622 DEBUG EventThread COM2 c.COMPortConnection received line [Df]
+2025/04/12 15:02:43.143 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:Df 0.000,0.000,0.000
+
+2025/04/12 20:07:50.895 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 20:07:50.901 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 20:07:50.900 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 20:07:50.903 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 20:07:51.616 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 20:07:51.620 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 20:07:58.756 DEBUG EventThread COM2 c.COMPortConnection received line [Da]
+2025/04/12 20:07:58.757 DEBUG EventThread COM2 c.COMPortConnection received line []
+2025/04/12 20:07:59.130 DEBUG Responser c.COMPortConnection BluetoothConnection>send cmd:Da 0.000000,0.000000,0.000000
+
+2025/04/12 20:15:11.888 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 20:15:11.911 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 20:15:11.920 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 20:15:11.920 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 20:15:12.592 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 20:15:12.596 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 20:16:05.436 INFO JavaFX Application Thread c.COMPortConnection stop> gonna stop.
+2025/04/12 20:16:05.438 DEBUG JavaFX Application Thread c.COMPortConnection *** port.close() 
+2025/04/12 20:16:05.485 INFO TSSimulator c.TSSimulator TSSimulator::process thread stopped.
+2025/04/12 20:16:05.665 INFO Responser c.COMPortConnection TSSimulator::response thread stopped.
+2025/04/12 20:16:08.882 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 20:16:08.882 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 20:16:08.883 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 20:16:08.883 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 20:16:08.889 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 20:16:08.890 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 20:18:15.273 INFO JavaFX Application Thread c.COMPortConnection stop> gonna stop.
+2025/04/12 20:18:15.275 DEBUG JavaFX Application Thread c.COMPortConnection *** port.close() 
+2025/04/12 20:18:15.402 INFO Responser c.COMPortConnection TSSimulator::response thread stopped.
+2025/04/12 20:18:15.402 INFO TSSimulator c.TSSimulator TSSimulator::process thread stopped.
+2025/04/12 20:18:51.924 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 20:18:51.931 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 20:18:51.931 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 20:18:51.934 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 20:18:52.967 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 20:18:53.030 DEBUG EventThread COM2 c.COMPortConnection CTS - ON
+2025/04/12 20:18:53.031 DEBUG EventThread COM2 c.COMPortConnection DSR - ON
+2025/04/12 20:18:53.032 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 20:20:12.408 INFO JavaFX Application Thread c.COMPortConnection stop> gonna stop.
+2025/04/12 20:20:12.410 DEBUG JavaFX Application Thread c.COMPortConnection *** port.close() 
+2025/04/12 20:20:12.607 INFO TSSimulator c.TSSimulator TSSimulator::process thread stopped.
+2025/04/12 20:20:12.630 INFO Responser c.COMPortConnection TSSimulator::response thread stopped.
+2025/04/12 20:20:56.536 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 20:20:56.537 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 20:20:56.537 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 20:20:56.537 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 20:20:56.544 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 20:20:56.546 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 20:23:01.373 INFO JavaFX Application Thread c.COMPortConnection stop> gonna stop.
+2025/04/12 20:23:01.375 DEBUG JavaFX Application Thread c.COMPortConnection *** port.close() 
+2025/04/12 20:23:01.661 INFO Responser c.COMPortConnection TSSimulator::response thread stopped.
+2025/04/12 20:23:01.661 INFO TSSimulator c.TSSimulator TSSimulator::process thread stopped.
+2025/04/12 20:23:25.172 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 20:23:25.179 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 20:23:25.179 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 20:23:25.181 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 20:23:25.896 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 20:23:25.902 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 20:23:32.451 DEBUG EventThread COM2 c.COMPortConnection CTS - ON
+2025/04/12 20:23:32.452 DEBUG EventThread COM2 c.COMPortConnection DSR - ON
+2025/04/12 20:23:32.964 DEBUG EventThread COM2 c.COMPortConnection received [42]
+2025/04/12 20:23:32.964 DEBUG EventThread COM2 c.COMPortConnection received [81]
+2025/04/12 20:23:32.965 DEBUG EventThread COM2 c.COMPortConnection received [13]
+2025/04/12 20:25:01.088 INFO JavaFX Application Thread c.COMPortConnection stop> gonna stop.
+2025/04/12 20:25:01.091 DEBUG JavaFX Application Thread c.COMPortConnection *** port.close() 
+2025/04/12 20:25:01.188 INFO Responser c.COMPortConnection TSSimulator::response thread stopped.
+2025/04/12 20:25:01.193 INFO TSSimulator c.TSSimulator TSSimulator::process thread stopped.
+2025/04/12 20:25:32.303 DEBUG JavaFX Application Thread c.TSSimulator COM thread START #1.
+2025/04/12 20:25:32.308 DEBUG JavaFX Application Thread c.COMPortConnection id: COM2
+2025/04/12 20:25:32.308 DEBUG TSSimulator c.TSSimulator Start TSSimulation processer thread.
+2025/04/12 20:25:32.310 DEBUG JavaFX Application Thread c.COMPortConnection false
+2025/04/12 20:25:33.035 DEBUG JavaFX Application Thread c.COMPortConnection *** port opened.COM2
+2025/04/12 20:25:33.039 DEBUG Responser c.COMPortConnection run> Start response thread.
+2025/04/12 20:25:46.312 DEBUG EventThread COM2 c.COMPortConnection received [42]
+2025/04/12 20:25:46.313 DEBUG EventThread COM2 c.COMPortConnection received [81]
+2025/04/12 20:25:46.313 DEBUG EventThread COM2 c.COMPortConnection received [13]
+2025/04/12 20:25:46.314 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 20:25:46.556 DEBUG Responser c.COMPortConnection COMPortConnetion>send cmd:
+2025/04/12 20:25:46.610 DEBUG EventThread COM2 c.COMPortConnection received [65]
+2025/04/12 20:25:46.611 DEBUG EventThread COM2 c.COMPortConnection received [13]
+2025/04/12 20:25:46.611 DEBUG EventThread COM2 c.COMPortConnection received line [A]
+2025/04/12 20:25:47.159 DEBUG Responser c.COMPortConnection COMPortConnetion>send cmd:A MS05AXII,KJ0416,0327,0150
+
+2025/04/12 20:29:02.989 DEBUG EventThread COM2 c.COMPortConnection received [68]
+2025/04/12 20:29:02.989 DEBUG EventThread COM2 c.COMPortConnection received [97]
+2025/04/12 20:29:02.990 DEBUG EventThread COM2 c.COMPortConnection received [13]
+2025/04/12 20:29:02.990 DEBUG EventThread COM2 c.COMPortConnection received line [Da]
+2025/04/12 20:29:03.549 DEBUG Responser c.COMPortConnection COMPortConnetion>send cmd:Da 0.000000,0.000000,0.000000
+
+2025/04/12 20:29:03.596 DEBUG EventThread COM2 c.COMPortConnection received [68]
+2025/04/12 20:29:03.596 DEBUG EventThread COM2 c.COMPortConnection received [97]
+2025/04/12 20:29:03.598 DEBUG EventThread COM2 c.COMPortConnection received [13]
+2025/04/12 20:29:03.598 DEBUG EventThread COM2 c.COMPortConnection received line [Da]
+2025/04/12 20:29:04.149 DEBUG Responser c.COMPortConnection COMPortConnetion>send cmd:Da 0.000000,0.000000,0.000000
+
+2025/04/12 20:29:20.318 DEBUG EventThread COM2 c.COMPortConnection received [42]
+2025/04/12 20:29:20.320 DEBUG EventThread COM2 c.COMPortConnection received [47]
+2025/04/12 20:29:20.320 DEBUG EventThread COM2 c.COMPortConnection received [80]
+2025/04/12 20:29:20.321 DEBUG EventThread COM2 c.COMPortConnection received [71]
+2025/04/12 20:29:20.322 DEBUG EventThread COM2 c.COMPortConnection received [32]
+2025/04/12 20:29:20.323 DEBUG EventThread COM2 c.COMPortConnection received [50]
+2025/04/12 20:29:20.326 DEBUG EventThread COM2 c.COMPortConnection received [44]
+2025/04/12 20:29:20.327 DEBUG EventThread COM2 c.COMPortConnection received [48]
+2025/04/12 20:29:20.328 DEBUG EventThread COM2 c.COMPortConnection received [44]
+2025/04/12 20:29:20.329 DEBUG EventThread COM2 c.COMPortConnection received [48]
+2025/04/12 20:29:20.330 DEBUG EventThread COM2 c.COMPortConnection received [13]
+2025/04/12 20:29:20.330 DEBUG EventThread COM2 c.COMPortConnection received line [*/PG 2,0,0]
+2025/04/12 20:29:20.770 DEBUG Responser c.COMPortConnection COMPortConnetion>send cmd:
+2025/04/12 20:29:20.824 DEBUG EventThread COM2 c.COMPortConnection received [42]
+2025/04/12 20:29:20.825 DEBUG EventThread COM2 c.COMPortConnection received [47]
+2025/04/12 20:29:20.825 DEBUG EventThread COM2 c.COMPortConnection received [80]
+2025/04/12 20:29:20.825 DEBUG EventThread COM2 c.COMPortConnection received [65]
+2025/04/12 20:29:20.826 DEBUG EventThread COM2 c.COMPortConnection received [32]
+2025/04/12 20:29:20.826 DEBUG EventThread COM2 c.COMPortConnection received [48]
+2025/04/12 20:29:20.827 DEBUG EventThread COM2 c.COMPortConnection received [44]
+2025/04/12 20:29:20.828 DEBUG EventThread COM2 c.COMPortConnection received [48]
+2025/04/12 20:29:20.828 DEBUG EventThread COM2 c.COMPortConnection received [44]
+2025/04/12 20:29:20.828 DEBUG EventThread COM2 c.COMPortConnection received [50]
+2025/04/12 20:29:20.829 DEBUG EventThread COM2 c.COMPortConnection received [46]
+2025/04/12 20:29:20.829 DEBUG EventThread COM2 c.COMPortConnection received [48]
+2025/04/12 20:29:20.829 DEBUG EventThread COM2 c.COMPortConnection received [48]
+2025/04/12 20:29:20.830 DEBUG EventThread COM2 c.COMPortConnection received [48]
+2025/04/12 20:29:20.830 DEBUG EventThread COM2 c.COMPortConnection received [48]
+2025/04/12 20:29:20.831 DEBUG EventThread COM2 c.COMPortConnection received [44]
+2025/04/12 20:29:20.831 DEBUG EventThread COM2 c.COMPortConnection received [50]
+2025/04/12 20:29:20.831 DEBUG EventThread COM2 c.COMPortConnection received [46]
+2025/04/12 20:29:20.832 DEBUG EventThread COM2 c.COMPortConnection received [48]
+2025/04/12 20:29:20.832 DEBUG EventThread COM2 c.COMPortConnection received [48]
+2025/04/12 20:29:20.832 DEBUG EventThread COM2 c.COMPortConnection received [48]
+2025/04/12 20:29:20.833 DEBUG EventThread COM2 c.COMPortConnection received [48]
+2025/04/12 20:29:20.833 DEBUG EventThread COM2 c.COMPortConnection received [44]
+2025/04/12 20:29:20.833 DEBUG EventThread COM2 c.COMPortConnection received [44]
+2025/04/12 20:29:20.834 DEBUG EventThread COM2 c.COMPortConnection received [44]
+2025/04/12 20:29:20.834 DEBUG EventThread COM2 c.COMPortConnection received [13]
+2025/04/12 20:29:20.835 DEBUG EventThread COM2 c.COMPortConnection received line [*/PA 0,0,2.0000,2.0000,,,]
+2025/04/12 20:29:30.874 DEBUG EventThread COM2 c.COMPortConnection received [42]
+2025/04/12 20:29:30.874 DEBUG EventThread COM2 c.COMPortConnection received [81]
+2025/04/12 20:29:30.875 DEBUG EventThread COM2 c.COMPortConnection received [13]
+2025/04/12 20:29:30.875 DEBUG EventThread COM2 c.COMPortConnection received line [*Q]
+2025/04/12 20:29:31.384 DEBUG Responser c.COMPortConnection COMPortConnetion>send cmd:
+2025/04/13 14:22:33.325 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:62) ~[classes/:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:28) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 14:23:36.553 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:62) ~[classes/:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:28) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 14:24:42.718 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:62) ~[classes/:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:28) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 14:25:25.527 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:62) ~[classes/:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:28) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 14:26:34.099 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:62) ~[classes/:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:28) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 14:27:27.839 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:62) ~[classes/:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:28) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 14:42:49.704 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:62) ~[classes/:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:28) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:02:28.525 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:66) ~[classes/:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:29) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:05:47.599 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:05:47.644 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:05:47.647 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:05:47.649 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:05:47.652 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:07:54.974 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:07:55.020 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:07:55.022 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:07:55.027 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:07:55.030 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:07:55.032 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:07:55.036 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:11:16.669 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:68) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:39) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:13:14.960 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:69) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:40) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2025/04/13 15:14:39.890 WARN JavaFX Application Thread c.CustomClassLoader loadSubclasses>
+java.lang.ClassNotFoundException: null
+	at command.CommandTable.findClass(CustomClassLoader.java:69) ~[classes/:?]
+	at command.CommandTable.lambda$loadSubclasses$0(CustomClassLoader.java:40) ~[classes/:?]
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?]
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[?:?]
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:658) ~[?:?]
+	at command.CommandTable.loadSubclasses(CustomClassLoader.java:36) ~[classes/:?]
+	at application.Main.start(Main.java:34) ~[classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:847) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:484) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:457) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:456) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run$$$capture(InvokeLaterDispatcher.java:96) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-17.0.2-win.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-17.0.2-win.jar:?]
+	at java.lang.Thread.run(Thread.java:834) [?:?]

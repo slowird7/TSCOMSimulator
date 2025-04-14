@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<HBox fx:id="hBox" alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <VBox fx:id="controlBox" prefHeight="600.0" prefWidth="311.0">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <HBox fx:id="hBoxComm" prefHeight="40.0" spacing="5.0">
+               <children>
+                  <Button fx:id="btnConnect" mnemonicParsing="false" onAction="#onBtnConnectClicked" text="接続" />
+                  <ComboBox fx:id="txtCOMPort" editable="true" promptText="COM2" />
+               </children></HBox>
+            <VBox fx:id="vBoxTranslate" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="labelCameraPosition" styleClass="bold" text="カメラの位置" />
+                  <HBox fx:id="hBoxTranslateX">
+                     <children>
+                        <Label fx:id="labelCameraToRight" text="右へ：　">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                        <Text fx:id="textTranslateToRight" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" />
+                     </children>
+                  </HBox>
+                  <Slider fx:id="sliderTranslateToRight" blockIncrement="100.0" majorTickUnit="1000.0" max="2000.0" min="-2000.0" minorTickCount="100" showTickLabels="true" showTickMarks="true">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Slider>
+                  <HBox fx:id="hBoxTranslateY">
+                     <children>
+                        <Label fx:id="labelCameraToDown" text="下へ：　">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                        <Text fx:id="textTranslateToDown" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" />
+                     </children>
+                  </HBox>
+                  <Slider fx:id="sliderTranslateToDown" blockIncrement="100.0" majorTickUnit="1000.0" max="2000.0" min="-2000.0" minorTickCount="100" showTickLabels="true" showTickMarks="true">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Slider>
+                  <HBox fx:id="hBoxTranslateZ">
+                     <children>
+                        <Label fx:id="labelCameraToForward" text="向こうへ：　">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                        <Text fx:id="textTranslateToForward" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" />
+                     </children>
+                  </HBox>
+                  <Slider fx:id="sliderTranslateToForward" blockIncrement="100.0" majorTickUnit="1000.0" max="10000.0" min="-10000.0" minorTickCount="100" showTickLabels="true" showTickMarks="true">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Slider>
+               </children>
+            </VBox>
+            <VBox fx:id="vBoxRotate" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label styleClass="bold" text="label2" />
+                  <HBox fx:id="hBox1">
+                     <children>
+                        <Label fx:id="label3" text="カメラの方位角　：　">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                        <Text fx:id="textAzimuth" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" />
+                     </children>
+                  </HBox>
+                  <Slider fx:id="sliderAzimuth" majorTickUnit="60.0" max="360.0" minorTickCount="5" showTickLabels="true" showTickMarks="true">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Slider>
+                  <HBox fx:id="hbox2">
+                     <children>
+                        <Label fx:id="label4" text="カメラの仰角　：　" />
+                        <Text fx:id="textElevation" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" />
+                     </children>
+                  </HBox>
+                  <Slider fx:id="sliderElevation" majorTickUnit="60.0" max="180.0" min="-180.0" minorTickCount="5" showTickLabels="true" showTickMarks="true">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Slider>
+                  <HBox fx:id="hBox3">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <children>
+                        <Label fx:id="label5" text="TSの方位角　：　" />
+                        <Text fx:id="textTSAzimuth" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" />
+                     </children>
+                  </HBox>
+                  <Slider fx:id="sliderTSAzimuth" majorTickUnit="60.0" max="360.0" minorTickCount="5" showTickLabels="true" showTickMarks="true">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Slider>
+                  <HBox fx:id="hBox4">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <children>
+                        <Label fx:id="label6" text="TSの仰角　：　" />
+                        <Text fx:id="textTSElevation" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" />
+                     </children>
+                  </HBox>
+                  <Slider fx:id="sliderTSElevation" majorTickUnit="60.0" max="360.0" minorTickCount="5" showTickLabels="true" showTickMarks="true">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Slider>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>
