@@ -1,13 +1,12 @@
 package sokkiacommand;
 
-import connection.ConnectionMode;
+import java.util.regex.Pattern;
 
 public class SokkiaCommand_Q_in extends SokkiaCommand {
 
-    private final String SEND_COMMAND = "*Q";
-
     public SokkiaCommand_Q_in() {
-        command = SEND_COMMAND;
+        commandID = "*Q";
+        p = Pattern.compile("^\\*Q$");
         setTimeout(110);
     }
 

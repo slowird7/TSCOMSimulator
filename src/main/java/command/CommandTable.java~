@@ -1,0 +1,67 @@
+package command;
+
+import application.Main;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import sokkiacommand.SokkiaCommand;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Hashtable;
+import java.util.stream.Stream;
+
+public class CommandTable extends ClassLoader {
+    protected final static Logger LOGGER = LogManager.getLogger(CommandTable.class);
+    protected ClassLoader classLoader = Main.class.getClassLoader();
+
+    private Path classPath;
+    private Hashtable<String, SokkiaCommand> commandTable = new Hashtable<>();
+
+    public CommandTable(String classPath) {
+        this.classPath = Paths.get(classPath);
+    }
+
+    public void loadCommands() throws IOException {
+        Path dirpath = Paths.get(classPath.toString());
+
+       try(Stream<Path> stream = Files.list(dirpath)) {
+            stream.forEach(p -> {
+                try {
+                    byte[] classData = Files.readAllBytes(p);
+                    Class<?> t = defineClass(null, classData, 0, classData.length);
+                    System.out.print(t.getName() + " -> ");
+                    if (t.getSuperclass().getName().equals(SokkiaCommand.class.getName())) {
+                        try {
+                            Class<SokkiaCommand> sokkiaCommandClass = (Class<SokkiaCommand>)classLoader.loadClass(t.getName());
+                            SokkiaCommand newCommand = sokkiaCommandClass.newInstance();
+                            commandTable.put(newCommand.getCommandID(), newCommand);
+                            System.out.println(" OK");
+                        } catch (ClassNotFoundException ex) {
+                            LOGGER.warn("loadCommands> command not found:[" + t.getName() + "]");
+                        }
+                    } else {
+                        System.out.println(" NG");
+                    }
+
+                } catch (IOException ex) {
+                    LOGGER.warn("loadSubclasses>", ex);
+                } catch (IllegalAccessException | InstantiationException ex) {
+                    LOGGER.warn("loadSubclasses>", ex);
+                }
+            });
+        }catch(IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    public String dispatchCommand(String str) {
+        for(SokkiaCommand command : commandTable.values()) {
+            if (command.match(str)) {
+                return command.makeResponse(str);
+            }
+        }
+        return "\u0015\n";
+    }
+}

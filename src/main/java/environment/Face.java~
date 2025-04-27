@@ -1,0 +1,83 @@
+package environment;
+
+import javafx.geometry.Point3D;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
+
+class Face {
+    private final static Logger LOGGER = LogManager.getLogger(Face.class);
+
+    String name;
+    Point3D normalVector;
+    Point3D footPoint;
+    Point3D[] vertex = new Point3D[4];
+
+    public Face(String name, Point3D[] points) {
+        this.name = name;
+        for (int i = 0; i < 4; i++) {
+            vertex[i] = new Point3D(points[i].getX(), points[i].getY(), points[i].getZ());
+        }
+        normalVector = vertex[1].subtract(vertex[0]).crossProduct(vertex[2].subtract(vertex[0])).normalize();
+    }
+
+    public Face(String name, Point3D v1, Point3D v2, Point3D v3, Point3D v4) {
+        this.name = name;
+        Point3D[] points = new Point3D[]{v1, v2, v3, v4};
+        for (int i = 0; i < 4; i++) {
+            vertex[i] = new Point3D(points[i].getX(), points[i].getY(), points[i].getZ());
+        }
+        normalVector = vertex[1].subtract(vertex[0]).crossProduct(vertex[2].subtract(vertex[0])).normalize();
+    }
+
+    public Face(String name, double[] v1, double[] v2, double[] v3, double[] v4) {
+        this.name = name;
+        Point3D[] points = new Point3D[]{new Point3D(v1[0], v1[1], v1[2]), new Point3D(v2[0], v2[1], v2[2]), new Point3D(v3[0], v3[1], v3[2]), new Point3D(v4[0], v4[1], v4[2])};
+        for (int i = 0; i < 4; i++) {
+            vertex[i] = new Point3D(points[i].getX(), points[i].getY(), points[i].getZ());
+        }
+        normalVector = vertex[1].subtract(vertex[0]).crossProduct(vertex[2].subtract(vertex[0])).normalize();
+    }
+
+    public Point3D getNormalVecotor() {
+        return normalVector;
+    }
+
+    public Point3D getFootPointFrom(@NotNull Point3D p) {
+        double t = (vertex[0].subtract(p).dotProduct(normalVector));
+        Point3D footPoint = p.add(normalVector.multiply(t));
+        return footPoint;
+    }
+
+    public Point3D intersection(Point3D origin, Point3D direction) {
+        Point3D normalizedDirection = direction.normalize();
+        Point3D f = normalVector.multiply(vertex[0].subtract(origin).dotProduct(normalVector));
+        double dotProduct = normalizedDirection.dotProduct(f);
+        if (dotProduct == 0.) {
+            return null;
+        }
+        double k = f.dotProduct(f) / dotProduct;
+        Point3D intersection;
+        if (k >= 0) {
+            intersection = origin.add(normalizedDirection.multiply(k));
+            if (!isInsideOfFace(intersection)) {
+                intersection = null;
+            }
+        } else{
+            intersection = null;
+        }
+        return intersection;
+    }
+
+    public boolean isInsideOfFace(Point3D p) {
+        boolean x = (p.subtract(vertex[0]).dotProduct(vertex[1].subtract(vertex[0])) >= 0);
+        if (x == (p.subtract(vertex[1]).dotProduct(vertex[2].subtract(vertex[1])) >= 0)
+         && x == (p.subtract(vertex[2]).dotProduct(vertex[3].subtract(vertex[2])) >= 0)
+         && x == (p.subtract(vertex[3]).dotProduct(vertex[0].subtract(vertex[3])) >= 0)
+        ) {
+            return true;
+        }
+        return false;
+    }
+
+}

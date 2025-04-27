@@ -1,6 +1,5 @@
 package connection;
 
-import command.ChecksumCalculator;
 import exception.ReceiveFailedException;
 import exception.SendFailedException;
 import exception.TSNotConnectedException;
@@ -13,10 +12,12 @@ import jssc.SerialPortEventListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import project.Property;
+import ts.TSInterface;
 //import project.TKKAlert;
 
 import java.io.InputStream;
 import java.util.Deque;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 import static java.lang.Thread.sleep;
 
@@ -60,19 +61,27 @@ public class COMPortConnection extends ConnectionMode {
     protected InputStream in;
     protected String receive;
     protected StringBuffer buffer = new StringBuffer();
-    private Deque<String> commandQue = null;
-    private Deque<String> responseQue = null;
+    private ConcurrentLinkedDeque<String> commandQue = null;
+    private ConcurrentLinkedDeque<String> responseQue = null;
     private Responser thResponser;
-    private TSSimulator ts;
+    private TSInterface ts;
 
-    protected COMPortConnection(Deque commandQue, Deque responseQue) {
+    public COMPortConnection() {
         //sokkiaCommand = null;
         commands = null;
         port = null;
         setState(STATE.DISCONNECT);
-        this.commandQue = commandQue;
-        this.responseQue = responseQue;
+        this.commandQue = new ConcurrentLinkedDeque<>();
+        this.responseQue = new ConcurrentLinkedDeque<>();
         instance = this;
+    }
+
+    public Deque getCommandQue() {
+        return commandQue;
+    }
+
+    public Deque getResponseQue() {
+        return responseQue;
     }
 
     public SerialPort getPort() {
@@ -158,35 +167,13 @@ public class COMPortConnection extends ConnectionMode {
 
     @Override
     public int send() {
-        // do nothing
+        logger.warn("send>not implemented.");
         return 0;
     }
 
     @Override
     public int sendReceive() throws TSNotConnectedException, SendFailedException, ReceiveFailedException {
-        return 0;
-    }
-
-    private int sendOnemanCommand() throws TSNotConnectedException, SendFailedException, SerialPortException {
-
-        byte[] buffer = new byte[256];
-
-        logger.debug("COMPortConnetion>send cmd:" + commands.getCommand());
-        try {
-            ChecksumCalculator bccCalc = new ChecksumCalculator();
-            byte[] com = (bccCalc.checksumValue(commands.getCommand()).trim().concat("\u0003")).getBytes();
-            port.writeBytes(com);
-            port.writeByte((byte) '\r');
-            try {
-                sleep(300);
-            } catch (InterruptedException ex) {
-                // do nothing
-            }
-        } catch (jssc.SerialPortException ex) {
-            logger.error("Error Message", ex);
-            throw new SerialPortException(ex.getMessage());
-        }
-
+        logger.warn("sendReceive>not implemented.");
         return 0;
     }
 
@@ -196,7 +183,7 @@ public class COMPortConnection extends ConnectionMode {
         int nn = 0;
         byte[] buffer = new byte[256];
 
-        logger.debug("COMPortConnetion>send cmd:" + response);
+        logger.debug("COMPortConnetion>send response: [" + response + "]");
 //        try {
 //            nn = Integer.parseInt(response);
 //        } catch (NumberFormatException e) {
@@ -361,11 +348,6 @@ public class COMPortConnection extends ConnectionMode {
             return false;
         }
 
-//        if ((char) received_data == '\r') {
-//            // just ignore it.
-//            return true;
-//        }
-
         if ((char) received_data != '\n' && (char) received_data != '\r') {
             //System.out.println("received char [" + received_data + "]");
             buffer.append((char) received_data);
@@ -374,7 +356,6 @@ public class COMPortConnection extends ConnectionMode {
 
         // 行末を受信
         logger.debug("received line [" + buffer.toString() + "]");
-        buffer.append('\n');
         if (commandQue != null) {
             commandQue.add(buffer.toString());
         }

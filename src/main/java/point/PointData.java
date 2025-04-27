@@ -1,6 +1,7 @@
 package point;
 
 import javafx.beans.property.*;
+import javafx.geometry.Point3D;
 import project.Property;
 
 import java.util.LinkedHashMap;
@@ -206,6 +207,10 @@ public class PointData {
 
     public void setKoushi(boolean f) {
         koushi = f;
+    }
+
+    public Point3D getPoint3D() {
+        return new Point3D(x.get(), y.get(), z.get());
     }
 
     @Override

@@ -1,6 +1,6 @@
 package application;
 
-import connection.TSSimulator;
+import ts.TSInterface;
 import exception.TSNotConnectedException;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -80,7 +80,7 @@ public class MainController implements Initializable {
     // objects
     private TS_3DModel ts1, ts2;
 
-    TSSimulator conn;
+    TSInterface conn;
 
     @FXML
     protected void onBtnConnectClicked()
@@ -102,7 +102,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        conn = new TSSimulator();
+        conn = new TSInterface();
 
         txtCOMPort.setValue("COM2");
 

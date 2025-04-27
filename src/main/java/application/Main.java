@@ -17,7 +17,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		CommandTable c = new CommandTable("C:/Users/otsuka/Documents/GitHub/TSCOMSimulator/target/classes/sokkiacommand");
-		c.loadSubclasses();
+		c.loadCommands();
 
 		FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainController.fxml"));
 		Scene scene = new Scene(fxmlLoader.load());

@@ -1,6 +1,5 @@
 package sokkiacommand;
 
-import connection.ConnectionMode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,10 +14,16 @@ public class SokkiaCommand_A extends SokkiaCommand {
     private final String commandAResponse = "A MS05AXII,KJ0416,0327,0150\n";
 
     public SokkiaCommand_A() {
-        SEND_COMMAND = "A";
-        command = SEND_COMMAND;
+        commandID = "A";
+        command = commandID;
+        p = Pattern.compile("^A$");
     }
 
+
+    @Override
+    public boolean match(String recv) {
+        return false;
+    }
 
     @Override
     public String makeResponse(String args) {

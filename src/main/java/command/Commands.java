@@ -78,14 +78,15 @@ public abstract class Commands extends Thread {
 
     }
 
-    protected boolean match(String recv) {
-        return false;
-    }
+    public boolean match(String recv) {
+        if (p == null) {
+            return false;
+        }
+        return p.matcher(recv).matches();
+    };
 
     public abstract void checkError() throws ReceiveErrorException;
 
-    public abstract boolean dataHandler(int received_data);
-
-    abstract public String makeResponse(String args);
+    public abstract String makeResponse(String args);
 
 }
