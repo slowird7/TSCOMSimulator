@@ -8,6 +8,7 @@ package ts;
 import environment.Room;
 import javafx.beans.property.*;
 import javafx.geometry.Point3D;
+import javafx.scene.control.Alert;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import point.AngleData;
@@ -24,7 +25,10 @@ public class TS {
 
     public static TS INSTANCE;
 
-    private PointData kikai, koushi, stakeout;
+    private final PointData kikai = new PointData(0, 0, 0);
+    private final PointData koushi =new PointData(0, 0, 0);
+    private final PointData stakeout = new PointData(0, 0, 0);
+    private double angleA;
 
     private final int receiveNGCount = 0;
     private final int rotateNGCount = 0;
@@ -75,9 +79,6 @@ public class TS {
         VSearchRange = new SimpleDoubleProperty(0.);
         tiltXDMS = new SimpleDoubleProperty(0.);
         tiltYDMS = new SimpleDoubleProperty(0.);
-
-        kikai = new PointData(0., 0., 0.);
-        stakeout = new PointData(0., 0., 0.);
     }
 
     public static TS getInstance() {
@@ -117,10 +118,16 @@ public class TS {
         return currentStatus.get();
     }
 
+    public DoubleProperty getAngleHDMSProperty() {
+        return angleHDMS;
+    }
     public double getAngleHDMS() {
         return angleHDMS.get();
     }
 
+    public DoubleProperty getAngleVDMSProperty() {
+        return angleVDMS;
+    }
     public double getAngleVDMS() {
         return angleVDMS.get();
     }
@@ -188,6 +195,15 @@ public class TS {
                 sendNGCount = 0;
             }
         }
+    }
+
+    public void collimate(double x,double y, double z) {
+        double dx = x - kikai.getX();
+        double dy = y - kikai.getY();
+        double dz = z - kikai.getZ();
+        angleVDMS.set(AngleData.RAD2DMS(Math.atan2(Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)), dz)));
+        angleHDMS.set(AngleData.RAD2DMS(Math.atan2(dy, dx)));
+        lastUpdate.set(new Date().getTime());
     }
 
     public boolean isReceiveNG() {

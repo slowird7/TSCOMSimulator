@@ -4,6 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ts.TS;
 
+import java.util.regex.Pattern;
+
 /**
  *
  */
@@ -13,6 +15,8 @@ public class SokkiaCommand_Ee extends SokkiaCommand {
 
     public SokkiaCommand_Ee() {
         commandID = "Ee";
+        p = Pattern.compile("^Ee");
+
     }
 
     public String makeResponse(String args) {

@@ -39,6 +39,8 @@ public class TS_3DModel implements Initializable {
     public Cylinder telescope;
     @FXML
     public Cylinder lenz;
+    @FXML
+    public Box finder;
 
     private final Rotate rotateBaseH = new Rotate(0, 100., 0., 0., new Point3D(0., -1., 0.));
     private final Rotate rotateBaseV = new Rotate(0., 0., 100., 0., new Point3D(1., 0., 0.));
@@ -76,15 +78,16 @@ public class TS_3DModel implements Initializable {
         eyepiece.setMaterial(greyPhongMaterial);
         telescope.setMaterial(greyPhongMaterial);
         lenz.setMaterial(blackPhongMaterial);
+        finder.setMaterial(blackPhongMaterial);
         baseHCoord.getTransforms().addAll(rotateBaseH);
         baseVCoord.getTransforms().addAll(rotateBaseV);
     }
 
     public void setAzimuth(double azimuth_DEG) {
-        rotateBaseH.setAngle(azimuth_DEG);
+        rotateBaseH.setAngle(-azimuth_DEG);
     }
 
     public void setElevation(double elevation_DEG) {
-        rotateBaseV.setAngle(elevation_DEG);
+        rotateBaseV.setAngle(90 - elevation_DEG);
     }
 }

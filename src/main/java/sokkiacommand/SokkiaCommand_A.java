@@ -16,14 +16,9 @@ public class SokkiaCommand_A extends SokkiaCommand {
     public SokkiaCommand_A() {
         commandID = "A";
         command = commandID;
-        p = Pattern.compile("^A$");
+        p = Pattern.compile("^A");
     }
 
-
-    @Override
-    public boolean match(String recv) {
-        return false;
-    }
 
     @Override
     public String makeResponse(String args) {

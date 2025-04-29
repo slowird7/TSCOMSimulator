@@ -148,6 +148,7 @@ public class MainController implements Initializable {
 
         sliderTSAzimuth.valueProperty().bindBidirectional(TS.getInstance().getAngleHDMSProperty());
         sliderTSElevation.valueProperty().bindBidirectional(TS.getInstance().getAngleVDMSProperty());
+        TS.getInstance().get
 
     }
 
@@ -210,9 +211,9 @@ public class MainController implements Initializable {
         sliderTSAzimuth.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
             if (new_val != null) {
                 ts1.setAzimuth((double)new_val);
+                textTSAzimuth.setText(String.format("%04.1f", (double)new_val));
             }
         });
-        textTSAzimuth.textProperty().bind(sliderTSAzimuth.valueProperty().asString("%04.1f"));
 
         sliderTSElevation.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
             if (new_val != null) {
@@ -220,7 +221,7 @@ public class MainController implements Initializable {
 
             }
         });
-        textTSElevation.textProperty().bind(sliderTSElevation.valueProperty().asString("%04.1f"));
+        textTSElevation.textProperty().bind(sliderTSElevation.String.format("%04.1f", (double)new_val));
     }
 
     private void handleMouseOnSubscene() {

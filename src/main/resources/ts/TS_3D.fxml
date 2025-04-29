@@ -12,6 +12,11 @@
             <Pane fx:id="baseVCoord" layoutY="60.0" prefHeight="160.0" prefWidth="200.0">
                <children>
                   <Box fx:id="turner" depth="120.0" height="120.0" layoutX="100.0" layoutY="100.0" width="80.0" />
+                  <Box fx:id="finder" depth="20.0" height="100" layoutX="100.0" layoutY="100.0" rotate="90.0" translateY="-70.0" width="20.0">
+                     <rotationAxis>
+                        <Point3D x="1.0" />
+                     </rotationAxis>
+                  </Box>
                   <Cylinder fx:id="telescope" drawMode="LINE" height="80.0" layoutX="100.0" layoutY="100.0" radius="30.0" rotate="90.0" translateZ="40.0">
                      <rotationAxis>
                         <Point3D x="1.0" />
