@@ -2,11 +2,10 @@ package command;
 
 import connection.ConnectionMode;
 import exception.ReceiveErrorException;
-import exception.TSGeneralException;
-import exception.TSNotConnectedException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import project.Property;
+import ts.TSInterface;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -32,6 +31,12 @@ public abstract class Commands extends Thread {
     protected boolean comp = false;
     protected Pattern p;
     protected Matcher m;
+    protected TSInterface tsInterface;
+
+    public Commands(TSInterface tsInterface) {
+        this.tsInterface = tsInterface;
+    }
+
 
     public boolean isReceivedACK() {
         return receivedACK;
@@ -57,22 +62,6 @@ public abstract class Commands extends Thread {
         this.receive = str;
     }
 
-    public String getReceiveData() {
-        return receivedData;
-    }
-
-    public void setReceiveData(String data) {
-        receivedData = data;
-    }
-
-    public boolean getReceivedACK() {
-        return receivedACK;
-    }
-
-    public void setReceivedACK(boolean set) {
-        receivedACK = set;
-    }
-
     public String getCommand() {
         return command;
 
@@ -83,7 +72,7 @@ public abstract class Commands extends Thread {
             return false;
         }
         return p.matcher(recv).matches();
-    };
+    }
 
     public abstract void checkError() throws ReceiveErrorException;
 

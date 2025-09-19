@@ -1,34 +1,42 @@
 package application;
 
-import javafx.scene.control.*;
-import ts.TS;
-import ts.TSInterface;
+import environment.Room;
 import exception.TSNotConnectedException;
+import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.PerspectiveCamera;
-import javafx.scene.SceneAntialiasing;
-import javafx.scene.SubScene;
+import javafx.geometry.Point3D;
+import javafx.scene.*;
+import javafx.scene.control.*;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.input.ZoomEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Scale;
 import javafx.scene.transform.Translate;
+import ts.TS;
+import ts.TSInterface;
 import ts.TS_3DModel;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+//import com.interactivemesh.jfx.importer.ImportException;
+//import com.interactivemesh.jfx.importer.obj.ObjModelImporter;
 
 public class MainController implements Initializable {
     @FXML
     Button btnConnect;
     @FXML
     ComboBox<String> txtCOMPort;
-
+    @FXML
     private SubScene subScene;
 //    @FXML
     private PerspectiveCamera camera;
@@ -95,17 +103,19 @@ public class MainController implements Initializable {
     private final Translate translateZ = new Translate(0., 0., forward);
     // objects
     private TS_3DModel ts1, ts2;
+    private Room room;
+    private TS ts;
 
     TSInterface conn;
 
     @FXML
-    protected void onBtnConnectClicked()
+    private void onBtnConnectClicked()
     {
         if (!conn.isConnected()) {
             try {
-                if (!conn.open(txtCOMPort.getValue().toString())) {
+                if (!conn.open(txtCOMPort.getValue())) {
                     throw new TSNotConnectedException("COMポート" + txtCOMPort.getValue() + "に接続できません");
-                };
+                }
                 btnConnect.setText("Close");
             } catch (TSNotConnectedException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -118,7 +128,8 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        conn = new TSInterface();
+        ts = TS.getInstance();
+        conn = new TSInterface(ts);
 
         txtCOMPort.setValue("COM2");
 
@@ -134,10 +145,16 @@ public class MainController implements Initializable {
 
         // build up the scene
         Group group = new Group();
+        group.getTransforms().addAll(new Scale(1., 1., -1.)
+                , new Rotate(90., new Point3D(1., 0., 0.))
+                , new Rotate(90., new Point3D(0., 0., 1.)));
+        makeAxis(group);
         // オブジェクトを生成・配置
         makeObjects(group);
+        hBox.getChildren().remove(subScene);
         subScene = new SubScene(group, 600, 600, true, SceneAntialiasing.BALANCED);
         subScene.setFill(Color.LIGHTGREY);
+        subScene.setDepthTest(DepthTest.ENABLE);
         subScene.setRoot(group);
         subScene.setCamera(camera);
         hBox.getChildren().add(subScene);
@@ -146,16 +163,35 @@ public class MainController implements Initializable {
         handleSliders();
         handleMouseOnSubscene();
 
-        sliderTSAzimuth.valueProperty().bindBidirectional(TS.getInstance().getAngleHDMSProperty());
-        sliderTSElevation.valueProperty().bindBidirectional(TS.getInstance().getAngleVDMSProperty());
+        sliderTSAzimuth.valueProperty().bindBidirectional(ts.getAngleHDMSProperty());
+        sliderTSElevation.valueProperty().bindBidirectional(ts.getAngleVDMSProperty());
 
     }
 
     private void makeObjects(Group group) {
-        ts1 = new TS_3DModel();
-        ts2 = new TS_3DModel(1000., 0., 0.);
+        ts1 = new TS_3DModel(ts);
+        ts1.node.getTransforms().add(new Rotate(90., new Point3D(0., 1., 0.)));
+        ts1.node.getTransforms().add(new Scale(1., 1., 1.));
+//        ts1.node.getTransforms().add(new Rotate(180., new Point3D(0, 0., 0.)));
         group.getChildren().add(ts1.node);
-        group.getChildren().add(ts2.node);
+
+        room = Room.getInstance();
+        group.getChildren().add(room.node);
+    }
+
+    private void makeAxis(Group group) {
+        int span = 500;
+        int noOfLine = 5;
+        Pane snappedPane = new Pane();
+        for (int y = -span * noOfLine; y <= span * noOfLine; y += span) {
+            Line lineX = new Line(-span * noOfLine, y, span * noOfLine, y);
+            lineX.setStroke(Color.TEAL);
+            Line lineY = new Line(y, -span * noOfLine, y, span * noOfLine);
+            lineY.setStroke(Color.BLUE);
+            snappedPane.getChildren().addAll(lineX, lineY);
+        }
+        snappedPane.setSnapToPixel(true);
+        group.getChildren().add(snappedPane);
     }
 
     private void setTranslates() {
@@ -209,18 +245,17 @@ public class MainController implements Initializable {
 
         sliderTSAzimuth.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
             if (new_val != null) {
-                ts1.setAzimuth((double)new_val);
+                Platform.runLater(() -> ts1.setAzimuth(-(double)new_val));
             }
         });
-        textTSAzimuth.textProperty().bind(sliderTSAzimuth.valueProperty().asString("%04.1f"));
+        //textTSAzimuth.textProperty().bind(sliderTSAzimuth.valueProperty().asString("%04.1f"));
 
         sliderTSElevation.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
             if (new_val != null) {
-                ts1.setElevation((double)new_val);
-
+                Platform.runLater(() -> ts1.setElevation((double)new_val));
             }
         });
-        textTSElevation.textProperty().bind(sliderTSElevation.valueProperty().asString("%04.1f"));
+        //textTSElevation.textProperty().bind(sliderTSElevation.valueProperty().asString("%04.1f"));
     }
 
     private void handleMouseOnSubscene() {
@@ -247,11 +282,40 @@ public class MainController implements Initializable {
             double aimX = Double.parseDouble(txtAimX.getText());
             double aimY = Double.parseDouble(txtAimY.getText());
             double aimZ = Double.parseDouble(txtAimZ.getText());
-            TS.getInstance().collimate(aimX, aimY, aimZ);
+            ts.collimate(aimX, aimY, aimZ);
         } catch (NumberFormatException ex) {
-            return;
         }
 
     }
 
+    /**
+     * URL指定でOBJファイルからメッシュを作成する
+     * @param url
+     * @return
+
+    public Node createModelFromObj( String url )
+    {
+        // 戻り値の3Dモデルグループを作成
+        Group   root   = new Group();
+
+        // 3Dモデルのインポーターを作成
+        ObjModelImporter    importer    = new ObjModelImporter();
+
+        // インポータにモデル・ファイルを設定
+        try{
+            importer.read( url );
+        }catch( ImportException e ){
+            e.printStackTrace();
+        }
+
+        // 3Dモデルを取込
+        Node[]  meshes  = importer.getImport();
+        root.getChildren().addAll( meshes );
+
+        // インポータを閉じる
+        importer.close();
+
+        return root;
+    }
+    */
 }

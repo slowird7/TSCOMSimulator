@@ -3,7 +3,7 @@ package application;
 import command.CommandTable;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,8 +16,8 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		CommandTable c = new CommandTable("C:/Users/otsuka/Documents/GitHub/TSCOMSimulator/target/classes/sokkiacommand");
-		c.loadCommands();
+//		CommandTable c = new CommandTable("C:/Users/otsuka/Documents/GitHub/TSCOMSimulator/target/classes/sokkiacommand");
+//		c.loadCommands();
 
 		FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainController.fxml"));
 		Scene scene = new Scene(fxmlLoader.load());

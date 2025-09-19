@@ -65,7 +65,7 @@ public class Room {
         node = new Group();
         faces.stream().forEach(face ->
                 node.getChildren().add(face.node));
-        prizum = new Sphere(0.05 * R);
+        prizum = new Sphere(50 * R);
         prizum.setMaterial(new PhongMaterial(Color.RED));
         prizum.setVisible(false);
         node.getChildren().add(prizum);

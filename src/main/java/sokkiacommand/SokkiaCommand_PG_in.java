@@ -1,7 +1,7 @@
 package sokkiacommand;
 
-import connection.ConnectionMode;
 import ts.TS;
+import ts.TSInterface;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,7 +11,8 @@ import java.util.regex.Pattern;
  */
 public class SokkiaCommand_PG_in extends SokkiaCommand {
 
-    public SokkiaCommand_PG_in() {
+    public SokkiaCommand_PG_in(TSInterface ts) {
+        super(ts);
         commandID = "*/PG";
         p = Pattern.compile("^\\*/PG ([01234]),(\\-?[0-9.]+),([0-9.]+)$");
     }
@@ -33,9 +34,9 @@ public class SokkiaCommand_PG_in extends SokkiaCommand {
         } catch (NumberFormatException ex) {
             return "\u0015";
         }
-        TS.getInstance().setTargetType(Integer.parseInt(mm.group(1)));
-        TS.getInstance().setParameter(parameter);
-        TS.getInstance().setDiameter(diameter);
+        tsInterface.getTS().setTargetType(Integer.parseInt(mm.group(1)));
+        tsInterface.getTS().setParameter(parameter);
+        tsInterface.getTS().setDiameter(diameter);
         return "\u0006";
     }
 }

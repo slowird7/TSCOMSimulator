@@ -1,19 +1,20 @@
 package sokkiacommand;
 
 import command.Commands;
-import exception.*;
+import exception.ReceiveErrorException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.regex.Pattern;
-
-import static java.lang.Thread.sleep;
+import ts.TSInterface;
 
 public abstract class SokkiaCommand extends Commands {
 
     protected final static Logger LOGGER = LogManager.getLogger(SokkiaCommand.class);
     protected String commandID = "";
 
+    public SokkiaCommand(TSInterface ts) {
+        super(ts);
+    }
+    
     public String getCommandID() {
         return commandID;
     }
@@ -38,7 +39,6 @@ public abstract class SokkiaCommand extends Commands {
     @Override
     public void checkError() throws ReceiveErrorException {
         if (receive.isEmpty()) {
-            return;
         }
     }
 }

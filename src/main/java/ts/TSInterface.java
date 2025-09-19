@@ -12,9 +12,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.Deque;
-import java.util.NoSuchElementException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * @author n_otsuka
@@ -23,21 +20,24 @@ public class TSInterface {
 
     private final static Logger LOGGER = LogManager.getLogger(TSInterface.class);
 
-    private COMPortConnection connection;
+    private final COMPortConnection connection;
     private final Deque<String> commandQue;
     private final Deque<String> responseQue;
-    private CommandTable commandTable;
-    private TS ts;
+    private final CommandTable commandTable;
+    private final TS ts;
 
-    private String responseLast = null;
+    private final String responseLast = null;
     private volatile boolean running = false;
-    private boolean isContinuous = false;
+    private final boolean isContinuous = false;
     private boolean isRepeating = false;
     private double hDistSurvey;
-    private double errX = 0.001, errY = 0.002, errZ = 0.;
+    private final double errX = 0.001;
+    private final double errY = 0.002;
+    private final double errZ = 0.;
 
-    public TSInterface() {
-        commandTable = new CommandTable("C:/Users/otsuka/Documents/GitHub/TSCOMSimulator/target/classes/sokkiacommand");
+    public TSInterface(TS ts) {
+        this.ts = ts;
+        commandTable = new CommandTable("C:/Users/n_otsuka/Documents/Git_GitHub/TSCOMSimulator/target/classes/sokkiacommand", this);
         try {
             commandTable.loadCommands();
         } catch (IOException ex) {
@@ -48,6 +48,11 @@ public class TSInterface {
         this.responseQue = connection.getResponseQue();
         //TextInputDialog textIn = new TextInputDialog("0.0");
         //String str = textIn.showAndWait().orElse("");
+
+    }
+
+    public TS getTS() {
+        return ts;
     }
 
     public boolean open(String id) {
@@ -56,12 +61,7 @@ public class TSInterface {
         LOGGER.debug("COM thread START #1.");
         th.start();
 
-        if (!connection.open(id)) {
-            return false;
-        }
-
-
-        return true;
+        return connection.open(id);
     }
 
     public void close() {
@@ -78,34 +78,16 @@ public class TSInterface {
     }
 
     synchronized private void processCommand(String commandStr) {
-        ;
         isRepeating = false;
 
         if (commandStr.isEmpty()) {
             return;
         }
         responseQue.add(commandTable.dispatchCommand(commandStr));
-        return;
     }
 
-
-    private void updateResponses() {
-
-        double diffX = 0.;
-        double diffY = 0.;
-        double diffZ = 0.;
-        double hDistDesign = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
-        double vAngleDesign = Math.atan2(hDistDesign, diffZ);
-        double hAngleDesign = Math.atan2(diffY, diffX);
-        hDistSurvey = Math.sqrt(Math.pow(diffX + errX, 2) + Math.pow(diffY + errY, 2));
-        double vAngleSurvey = Math.atan2(hDistDesign, diffZ + errZ);
-        double hAngleSurvey = Math.atan2(diffY + errY, diffX + errX);
-        while (hAngleSurvey < 0) {
-            hAngleSurvey += 2. * Math.PI;
-        }
-        while (hAngleSurvey >= 2. * Math.PI) {
-            hAngleSurvey -= 2. * Math.PI;
-        }
+    synchronized public void respond(String response) {
+        responseQue.add(response);
     }
 
     private class TSCommandProcesser extends Thread {

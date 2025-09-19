@@ -1,6 +1,15 @@
 package environment;
 
 import javafx.geometry.Point3D;
+import javafx.geometry.VPos;
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.transform.Rotate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -12,6 +21,8 @@ class Face {
     Point3D normalVector;
     Point3D footPoint;
     Point3D[] vertex = new Point3D[4];
+    Pane node;
+    Paint paint;
 
     public Face(String name, Point3D[] points) {
         this.name = name;
@@ -19,6 +30,7 @@ class Face {
             vertex[i] = new Point3D(points[i].getX(), points[i].getY(), points[i].getZ());
         }
         normalVector = vertex[1].subtract(vertex[0]).crossProduct(vertex[2].subtract(vertex[0])).normalize();
+        node = makeNode();
     }
 
     public Face(String name, Point3D v1, Point3D v2, Point3D v3, Point3D v4) {
@@ -28,6 +40,7 @@ class Face {
             vertex[i] = new Point3D(points[i].getX(), points[i].getY(), points[i].getZ());
         }
         normalVector = vertex[1].subtract(vertex[0]).crossProduct(vertex[2].subtract(vertex[0])).normalize();
+        node = makeNode();
     }
 
     public Face(String name, double[] v1, double[] v2, double[] v3, double[] v4) {
@@ -37,15 +50,44 @@ class Face {
             vertex[i] = new Point3D(points[i].getX(), points[i].getY(), points[i].getZ());
         }
         normalVector = vertex[1].subtract(vertex[0]).crossProduct(vertex[2].subtract(vertex[0])).normalize();
+        node = makeNode();
     }
 
-    public Face(String name, double x1, double y1, double x2, double y2, double z_top, double z_bottom) {
+    public Face(String name, double x1, double y1, double x2, double y2, double z_top, double z_bottom, Paint paint) {
         this.name = name;
         vertex[0] = new Point3D(x1, y1, z_bottom);
         vertex[1] = new Point3D(x1, y1, z_top);
         vertex[2] = new Point3D(x2, y2, z_top);
         vertex[3] = new Point3D(x2, y2, z_bottom);
+        this.paint = paint;
         normalVector = vertex[1].subtract(vertex[0]).crossProduct(vertex[2].subtract(vertex[0])).normalize();
+        node = makeNode();
+    }
+
+    public Pane makeNode() {
+        Pane pane =new Pane();
+        pane.setLayoutX(vertex[0].getX());
+        pane.setLayoutY(vertex[0].getY());
+
+        double width = vertex[1].distance(vertex[2]);
+        double height = vertex[0].distance(vertex[1]);
+        Shape shape = new Rectangle(0., -height, width, height);
+        shape.setFill(paint);
+        shape.setOpacity(0.2);
+        pane.getChildren().add(shape);
+        Text label = new Text(0., 0., name);
+//        label.setLayoutX(vertex[0].getX());
+//        label.setLayoutY(vertex[0].getY());
+        label.setFont( Font.font( 500 ) );
+        label.setOpacity(0.5);
+        pane.getChildren().add(label);
+        double deg = Math.toDegrees(Math.atan2(vertex[2].getY() - vertex[1].getY(), vertex[2].getX() - vertex[1].getX()));
+        Point3D axis = vertex[2].subtract(vertex[1]);
+//        label.getTransforms().add(new Rotate(180, axis));
+        pane.getTransforms().add(new Rotate(-90, axis));
+        pane.getTransforms().add(new Rotate(deg, Rotate.Z_AXIS));
+        //node.getTransforms().add(new Rotate(normalVector, vertex[0].getX(), vertex[0].getY()));
+        return pane;
     }
 
     public Point3D getNormalVecotor() {
@@ -80,13 +122,9 @@ class Face {
 
     public boolean isInsideOfFace(Point3D p) {
         boolean x = (p.subtract(vertex[0]).dotProduct(vertex[1].subtract(vertex[0])) >= 0);
-        if (x == (p.subtract(vertex[1]).dotProduct(vertex[2].subtract(vertex[1])) >= 0)
-         && x == (p.subtract(vertex[2]).dotProduct(vertex[3].subtract(vertex[2])) >= 0)
-         && x == (p.subtract(vertex[3]).dotProduct(vertex[0].subtract(vertex[3])) >= 0)
-        ) {
-            return true;
-        }
-        return false;
+        return x == (p.subtract(vertex[1]).dotProduct(vertex[2].subtract(vertex[1])) >= 0)
+                && x == (p.subtract(vertex[2]).dotProduct(vertex[3].subtract(vertex[2])) >= 0)
+                && x == (p.subtract(vertex[3]).dotProduct(vertex[0].subtract(vertex[3])) >= 0);
     }
 
 }

@@ -13,7 +13,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import project.Property;
 import ts.TSInterface;
-//import project.TKKAlert;
 
 import java.io.InputStream;
 import java.util.Deque;
@@ -76,11 +75,11 @@ public class COMPortConnection extends ConnectionMode {
         instance = this;
     }
 
-    public Deque getCommandQue() {
+    public Deque<String> getCommandQue() {
         return commandQue;
     }
 
-    public Deque getResponseQue() {
+    public Deque<String> getResponseQue() {
         return responseQue;
     }
 
@@ -99,7 +98,7 @@ public class COMPortConnection extends ConnectionMode {
 
             if (!open(id, 9600, DATABITS_8, STOPBITS_1, PARITY_NONE)) {
                 return false;
-            };
+            }
             thResponser = new Responser();
             thResponser.start();
             return true;
@@ -341,7 +340,7 @@ public class COMPortConnection extends ConnectionMode {
     }
 
     public boolean dataHandler(int received_data) {
-        logger.debug("received [" + received_data + "]");
+//        logger.debug("received [" + received_data + "]");
         // 入力ナシなら終了
         if (received_data == -1) {
             //System.out.println("No data available.");

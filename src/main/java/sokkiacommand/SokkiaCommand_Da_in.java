@@ -1,7 +1,7 @@
 package sokkiacommand;
 
-import connection.ConnectionMode;
 import ts.TS;
+import ts.TSInterface;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,7 +11,8 @@ import java.util.regex.Pattern;
  */
 public class SokkiaCommand_Da_in extends SokkiaCommand {
 
-    public SokkiaCommand_Da_in() {
+    public SokkiaCommand_Da_in(TSInterface ts) {
+        super(ts);
         commandID = "/Da";
         p = Pattern.compile("^/Da (\\-?[0-9.]+),(\\-?[0-9.]+),(\\-?[0-9.]+)$");
     }
@@ -30,9 +31,9 @@ public class SokkiaCommand_Da_in extends SokkiaCommand {
         } catch (NumberFormatException ex) {
             return "\u0015";
         }
-        TS.getInstance().getKikai().setX(kikaiX);
-        TS.getInstance().getKikai().setY(kikaiY);
-        TS.getInstance().getKikai().setZ(kikaiZ);
+        tsInterface.getTS().getKikai().setX(kikaiX);
+        tsInterface.getTS().getKikai().setY(kikaiY);
+        tsInterface.getTS().getKikai().setZ(kikaiZ);
         return "\u0006";
     }
 }

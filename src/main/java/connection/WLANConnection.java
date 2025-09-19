@@ -5,8 +5,6 @@ import project.Property;
 
 import java.net.InetAddress;
 
-import static java.lang.Thread.sleep;
-
 /**
  * @author kinsoku
  */

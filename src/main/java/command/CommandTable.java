@@ -4,8 +4,11 @@ import application.Main;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import sokkiacommand.SokkiaCommand;
+import ts.TS;
+import ts.TSInterface;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,11 +19,13 @@ public class CommandTable extends ClassLoader {
     protected final static Logger LOGGER = LogManager.getLogger(CommandTable.class);
     protected ClassLoader classLoader = Main.class.getClassLoader();
 
-    private Path classPath;
-    private Hashtable<String, SokkiaCommand> commandTable = new Hashtable<>();
+    private final Path classPath;
+    private final Hashtable<String, SokkiaCommand> commandTable = new Hashtable<>();
+    private final TSInterface ts;
 
-    public CommandTable(String classPath) {
+    public CommandTable(String classPath, TSInterface ts) {
         this.classPath = Paths.get(classPath);
+        this.ts = ts;
     }
 
     public void loadCommands() throws IOException {
@@ -35,11 +40,15 @@ public class CommandTable extends ClassLoader {
                     if (t.getSuperclass().getName().equals(SokkiaCommand.class.getName())) {
                         try {
                             Class<SokkiaCommand> sokkiaCommandClass = (Class<SokkiaCommand>)classLoader.loadClass(t.getName());
-                            SokkiaCommand newCommand = sokkiaCommandClass.newInstance();
+                            SokkiaCommand newCommand = sokkiaCommandClass.getDeclaredConstructor(TSInterface.class).newInstance(ts);
                             commandTable.put(newCommand.getCommandID(), newCommand);
                             System.out.println(" OK");
                         } catch (ClassNotFoundException ex) {
-                            LOGGER.warn("loadCommands> command not found:[" + t.getName() + "]");
+                            LOGGER.warn("loadCommands> command not found:[" + t.getName() + "]", ex);
+                        } catch (NoSuchMethodException ex) {
+                            LOGGER.warn("loadCommands> method not found:[" + t.getName() + "]", ex);
+                        } catch (InvocationTargetException ex) {
+                            LOGGER.warn("loadCommands> constructor not found:[" + t.getName() + "]", ex);
                         }
                     } else {
                         System.out.println(" NG");

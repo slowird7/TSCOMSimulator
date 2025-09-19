@@ -26,7 +26,7 @@ public class TS {
     private final static Logger LOGGER = LogManager.getLogger(TS.class);
 
     public static TS INSTANCE;
-    public static double MOTOR_REV_SPEED_SEC_ms = 60. * 3600. / 1000.; // 毎秒60度
+    public static double MOTOR_REV_SPEED_SEC_ms = 30. * 3600. / 1000.; // 毎秒30度
     private static int INTERVAL_ms = 30;
 
     private final PointData kikai = new PointData(0, 0, 0);

@@ -1,9 +1,8 @@
 package sokkiacommand;
 
-import connection.ConnectionMode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ts.TS;
+import ts.TSInterface;
 
 import java.util.regex.Pattern;
 
@@ -13,7 +12,8 @@ public class SokkiaCommand_13H extends SokkiaCommand {
 
     private final String SEND_COMMAND = "19";	// 0x11 = 17
 
-    public SokkiaCommand_13H() {
+    public SokkiaCommand_13H(TSInterface ts) {
+        super(ts);
         command = SEND_COMMAND;
         p = Pattern.compile("^\u0013");
     }
@@ -175,6 +175,6 @@ public class SokkiaCommand_13H extends SokkiaCommand {
 
     @Override
     public String makeResponse(String args) {
-        return String.format("00000000 %s %s \n", DMS2FIX7(TS.getInstance().getAngleVDMS()), DMS2FIX7(TS.getInstance().getAngleHDMS()));
+        return(String.format("00000000 %s %s \n", DMS2FIX7(tsInterface.getTS().getAngleVDMS()), DMS2FIX7(tsInterface.getTS().getAngleHDMS())));
     }
 }

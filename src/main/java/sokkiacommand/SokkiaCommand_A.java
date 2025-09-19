@@ -2,18 +2,19 @@ package sokkiacommand;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ts.TS;
+import ts.TSInterface;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static java.lang.Thread.sleep;
 
 public class SokkiaCommand_A extends SokkiaCommand {
 
     private final static Logger logger = LogManager.getLogger(SokkiaCommand_A.class);
     private final String commandAResponse = "A MS05AXII,KJ0416,0327,0150\n";
 
-    public SokkiaCommand_A() {
+    public SokkiaCommand_A(TSInterface ts) {
+        super(ts);
         commandID = "A";
         command = commandID;
         p = Pattern.compile("^A");

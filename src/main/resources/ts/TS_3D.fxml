@@ -4,8 +4,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Box?>
 <?import javafx.scene.shape.Cylinder?>
+<?import javafx.scene.shape.Line?>
 
-<Pane fx:id="body" layoutX="-100.0" layoutY="-360.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="body" layoutX="-100.0" layoutY="-180.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="200.0" rotate="-90.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane fx:id="baseHCoord" prefHeight="360.0" prefWidth="200.0">
          <children>
@@ -27,11 +28,16 @@
                         <Point3D x="1.0" />
                      </rotationAxis>
                   </Cylinder>
-                  <Cylinder fx:id="lenz" height="60.0" layoutX="100.0" layoutY="100.0" radius="24.0" rotate="90.0" translateZ="35.0">
+                  <Cylinder fx:id="lenz" cullFace="NONE" height="60.0" layoutX="100.0" layoutY="100.0" radius="24.0" rotate="90.0" translateZ="35.0">
                      <rotationAxis>
                         <Point3D x="1.0" />
                      </rotationAxis>
                   </Cylinder>
+                  <Line fx:id="axisX" endX="1000.0" fill="RED" layoutX="100.0" layoutY="100.0" rotate="90.0" smooth="false" startX="-1000.0" stroke="RED" strokeWidth="5.0" visible="false">
+                     <rotationAxis>
+                        <Point3D y="1.0" />
+                     </rotationAxis>
+                  </Line>
                </children>
             </Pane>
             <Box fx:id="columnR" depth="80.0" height="200.0" layoutX="170.0" layoutY="180.0" width="50.0" />
@@ -42,6 +48,6 @@
       <Box fx:id="base" depth="160.0" height="20.0" layoutX="100.0" layoutY="350.0" width="200.0" />
    </children>
    <rotationAxis>
-      <Point3D y="1.0" />
+      <Point3D x="1.0" />
    </rotationAxis>
 </Pane>
