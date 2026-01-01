@@ -24,11 +24,11 @@ public class Room {
     private final static Logger LOGGER = LogManager.getLogger(Room.class);
     public static Room INSTANCE;
     private static final double R = 500.;
-    private static final double X_MAX = 10.0 * R;
-    private static final double X_MIN = -5.0 * R;
-    private static final double Y_MAX = 5.0 * R;
-    private static final double Y_MIN = -5.0 * R;
-    private static final double Z_MAX = 4.0 * R;
+    private static final double X_MAX = 15.0 * R;
+    private static final double X_MIN = -0.0 * R;
+    private static final double Y_MAX = 0.0 * R;
+    private static final double Y_MIN = -10.0 * R;
+    private static final double Z_MAX = 6.0 * R;
     private static final double Z_MIN = -1.0 * R;
 
     private TS ts;
@@ -47,6 +47,7 @@ public class Room {
         faces.add(new Face("left", X_MIN, Y_MIN, X_MAX, Y_MIN, Z_MIN, Z_MAX, Color.BLUE));
         faces.add(new Face("front", X_MIN, Y_MAX, X_MIN, Y_MIN,  Z_MIN, Z_MAX, Color.YELLOW));
         faces.add(new Face("back", X_MAX, Y_MIN, X_MAX, Y_MAX, Z_MIN, Z_MAX, Color.GREEN));
+//        faces.add(new Face("ceil", X_MIN, Y_MIN, X_MAX, Y_MAX, Z_MAX, Color.PINK));
         intersection = new SimpleObjectProperty<>();
         ts.getIsMeasuringProperty().addListener(new ChangeListener<Boolean>() {
             @Override

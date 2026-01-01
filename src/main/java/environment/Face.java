@@ -64,6 +64,17 @@ class Face {
         node = makeNode();
     }
 
+    public Face(String name, double x1, double y1, double x2, double y2, double z, Paint paint) {
+        this.name = name;
+        vertex[0] = new Point3D(x1, y1, z);
+        vertex[1] = new Point3D(x1, y2, z);
+        vertex[2] = new Point3D(x2, y2, z);
+        vertex[3] = new Point3D(x2, y1, z);
+        this.paint = paint;
+        normalVector = vertex[1].subtract(vertex[0]).crossProduct(vertex[2].subtract(vertex[0])).normalize();
+        node = makeNode();
+    }
+
     public Pane makeNode() {
         Pane pane =new Pane();
         pane.setLayoutX(vertex[0].getX());

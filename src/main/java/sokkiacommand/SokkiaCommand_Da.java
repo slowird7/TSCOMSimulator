@@ -17,7 +17,7 @@ public class SokkiaCommand_Da extends SokkiaCommand {
     }
 
     public String makeResponse(String args) {
-        return String.format("%s %.4f,%.4f,%.4f\n", commandID, tsInterface.getTS().getKikai().getX(), tsInterface.getTS().getKikai().getY(), tsInterface.getTS().getKikai().getZ());
+        return String.format("%s %.4f,%.4f,%.4f,,,,\n", commandID, tsInterface.getTS().getKikai().getX(), tsInterface.getTS().getKikai().getY(), tsInterface.getTS().getKikai().getZ());
     }
 
 }

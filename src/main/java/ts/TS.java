@@ -98,6 +98,7 @@ public class TS {
         kikai.setX(newKikai.getX());
         kikai.setY(newKikai.getY());
         kikai.setZ(newKikai.getZ());
+        lastUpdate.set(new Date().getTime());
     }
     public PointData getKikai() {
         return kikai;
@@ -149,7 +150,7 @@ public class TS {
 
     public Double getDistance_M() {
         isMeasuring.set(true);
-        double distance = Room.getInstance().getDistance();
+        double distance = Room.getInstance().getDistance() ;
         try {
             sleep(1000);
         } catch (InterruptedException ex) {

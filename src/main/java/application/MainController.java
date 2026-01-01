@@ -20,6 +20,7 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Translate;
+import point.PointData;
 import ts.TS;
 import ts.TSInterface;
 import ts.TS_3DModel;
@@ -105,6 +106,7 @@ public class MainController implements Initializable {
     private TS_3DModel ts1, ts2;
     private Room room;
     private TS ts;
+    private final Translate tsLocation = new Translate(0, 0, 0); // TS location
 
     TSInterface conn;
 
@@ -124,6 +126,16 @@ public class MainController implements Initializable {
             conn.close();
             btnConnect.setText("connect");
         }
+    }
+
+    @FXML
+    private void onBtnKikaiClicked()
+    {
+        ts.setKikai(new PointData(Double.parseDouble(txtKikaiX.getText()), Double.parseDouble(txtKikaiY.getText()), Double.parseDouble(txtKikaiZ.getText())));
+        tsLocation.setX(Double.parseDouble(txtKikaiX.getText()));
+        tsLocation.setY(Double.parseDouble(txtKikaiY.getText()));
+        tsLocation.setZ(Double.parseDouble(txtKikaiZ.getText()));
+
     }
 
     @Override
@@ -172,6 +184,7 @@ public class MainController implements Initializable {
         ts1 = new TS_3DModel(ts);
         ts1.node.getTransforms().add(new Rotate(90., new Point3D(0., 1., 0.)));
         ts1.node.getTransforms().add(new Scale(1., 1., 1.));
+        ts1.node.getTransforms().add(tsLocation);
 //        ts1.node.getTransforms().add(new Rotate(180., new Point3D(0, 0., 0.)));
         group.getChildren().add(ts1.node);
 
@@ -249,6 +262,8 @@ public class MainController implements Initializable {
             }
         });
         //textTSAzimuth.textProperty().bind(sliderTSAzimuth.valueProperty().asString("%04.1f"));
+
+
 
         sliderTSElevation.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
             if (new_val != null) {
