@@ -322,15 +322,15 @@ public class COMPortConnection extends ConnectionMode {
                     logger.debug("DSR - ON");
                 } else {
                     logger.debug("DSR - OFF");
-                    try {
-                        port.closePort();
-                        port = null;
-                        setState(STATE.DISCONNECT);
-                    } catch (jssc.SerialPortException e) {
-                        logger.error("Error Message", e);
-                        // TODO 自動生成された catch ブロック
-                        e.printStackTrace();
-                    }
+//                    try {
+//                        port.closePort();
+//                        port = null;
+//                        setState(STATE.DISCONNECT);
+//                    } catch (jssc.SerialPortException e) {
+//                        logger.error("Error Message", e);
+//                        // TODO 自動生成された catch ブロック
+//                        e.printStackTrace();
+//                    }
                 }
             }
 //            } catch (SerialPortException ex) {
