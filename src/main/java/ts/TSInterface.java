@@ -37,7 +37,8 @@ public class TSInterface {
 
     public TSInterface(TS ts) {
         this.ts = ts;
-        commandTable = new CommandTable("C:/Users/n_otsuka/Documents/Git_GitHub/TSCOMSimulator/target/classes/sokkiacommand", this);
+//        commandTable = new CommandTable("C:/Users/n_otsuka/Documents/Git_GitHub/TSCOMSimulator/target/classes/sokkiacommand", this);
+        commandTable = new CommandTable("C:/Users/otsuka/Documents/GitHub/TSCOMSimulator/target/classes/sokkiacommand", this);
         try {
             commandTable.loadCommands();
         } catch (IOException ex) {
