@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<HBox fx:id="hBox" alignment="CENTER" minWidth="311.0" prefHeight="678.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<HBox fx:id="hBox" alignment="CENTER" minWidth="311.0" prefHeight="799.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
       <VBox fx:id="controlBox" prefHeight="600.0" prefWidth="311.0">
          <HBox.margin>
@@ -51,7 +51,7 @@
                   <TextField fx:id="txtAimX" alignment="CENTER_RIGHT" text="9999" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <TextField fx:id="txtAimY" alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                   <TextField fx:id="txtAimZ" alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Button fx:id="btnKikai" ellipsisString="" mnemonicParsing="false" text="器械点" onAction="#onBtnKikaiClicked" GridPane.rowIndex="4" />
+                  <Button fx:id="btnKikai" ellipsisString="" mnemonicParsing="false" onAction="#onBtnKikaiClicked" text="器械点" GridPane.rowIndex="4" />
                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="84.0" text="X [m]" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="74.0" text="Y [m]" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="113.0" text="Z [m]" GridPane.columnIndex="1" GridPane.rowIndex="6" />
@@ -115,9 +115,8 @@
                   </Slider>
                </children>
             </VBox>
-            <VBox fx:id="vBoxRotate" prefHeight="200.0" prefWidth="200.0">
+            <VBox fx:id="vBoxRotate" prefHeight="348.0" prefWidth="291.0">
                <children>
-                  <Label styleClass="bold" text="label2" />
                   <HBox fx:id="hBox1">
                      <children>
                         <Label fx:id="label3" text="カメラの方位角　：　">
@@ -133,6 +132,11 @@
                         <Insets left="10.0" right="10.0" />
                      </padding>
                   </Slider>
+                  <Slider fx:id="sliderAzimuthFine" blockIncrement="0.01" majorTickUnit="0.05" max="1.0" min="-1.0" minorTickCount="1" onDragDone="#onSliderFineDragDone" onMouseDragReleased="#onSliderFineDragDone" showTickMarks="true">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Slider>
                   <HBox fx:id="hbox2">
                      <children>
                         <Label fx:id="label4" text="カメラの仰角　：　" />
@@ -140,6 +144,11 @@
                      </children>
                   </HBox>
                   <Slider fx:id="sliderElevation" majorTickUnit="60.0" max="180.0" min="-180.0" minorTickCount="5" showTickLabels="true" showTickMarks="true">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Slider>
+                  <Slider fx:id="sliderElevationFine" blockIncrement="0.01" majorTickUnit="0.05" max="1.0" min="-1.0" minorTickCount="1" onDragDone="#onSliderFineDragDone" showTickMarks="true">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
@@ -158,6 +167,11 @@
                         <Insets left="10.0" right="10.0" />
                      </padding>
                   </Slider>
+                  <Slider fx:id="sliderTSAzimuthFine" blockIncrement="1.0E-4" majorTickUnit="0.05" max="1.0" min="-1.0" minorTickCount="1" onDragDone="#onSliderFineDragDone" showTickMarks="true">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Slider>
                   <HBox fx:id="hBox4">
                      <padding>
                         <Insets left="5.0" />
@@ -168,6 +182,11 @@
                      </children>
                   </HBox>
                   <Slider fx:id="sliderTSElevation" majorTickUnit="60.0" max="180.0" min="-180.0" minorTickCount="5" showTickLabels="true" showTickMarks="true">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Slider>
+                  <Slider fx:id="sliderTSElevationFine" blockIncrement="1.0E-4" majorTickUnit="0.05" max="1.0" min="-1.0" minorTickCount="1" onDragDone="#onSliderFineDragDone" showTickMarks="true">
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>

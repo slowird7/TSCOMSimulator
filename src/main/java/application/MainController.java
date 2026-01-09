@@ -9,13 +9,13 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Point3D;
 import javafx.scene.*;
 import javafx.scene.control.*;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.input.ZoomEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
@@ -25,7 +25,6 @@ import ts.TS;
 import ts.TSInterface;
 import ts.TS_3DModel;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -83,11 +82,19 @@ public class MainController implements Initializable {
     @FXML
     private Slider sliderAzimuth;
     @FXML
+    private Slider sliderAzimuthFine;
+    @FXML
     private Slider sliderElevation;
+    @FXML
+    private Slider sliderElevationFine;
     @FXML
     private Slider sliderTSAzimuth;
     @FXML
+    private Slider sliderTSAzimuthFine;
+    @FXML
     private Slider sliderTSElevation;
+    @FXML
+    private Slider sliderTSElevationFine;
     @FXML
     private HBox hBox;
 
@@ -226,6 +233,31 @@ public class MainController implements Initializable {
         textElevation.setText(String.format("%04.1f", elevationRotateAngle));
     }
 
+    private double sliderAnchor = 0.;
+
+    private void setupSliderFine(Slider sliderCoase, Slider sliderFine) {
+        sliderFine.setMaxHeight(sliderCoase.getMax());
+        sliderFine.setMinHeight(sliderCoase.getMin());
+        sliderFine.setOnMousePressed(mouseEvent -> {
+            sliderAnchor = sliderCoase.getValue();
+        });
+
+        sliderFine.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
+            if (new_val != null && new_val.doubleValue() != 0.) {
+                double newAzimuth = sliderAnchor + sliderFine.getValue();
+                if (newAzimuth > sliderFine.getMaxHeight()) newAzimuth = sliderFine.getMinHeight();
+                if (newAzimuth < sliderFine.getMinHeight()) newAzimuth = sliderFine.getMaxHeight();
+                sliderCoase.setValue(newAzimuth);
+            }
+        });
+
+        sliderFine.valueChangingProperty().addListener((obs, wasChanging, isNowChanging) -> {
+            if (!isNowChanging) {
+                sliderFine.setValue(0.);
+            }
+        });
+    }
+
     private void handleSliders() {
         sliderTranslateToRight.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
             right = (double)new_val;
@@ -258,18 +290,47 @@ public class MainController implements Initializable {
 
         sliderTSAzimuth.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
             if (new_val != null) {
-                Platform.runLater(() -> ts1.setAzimuth(-(double)new_val));
+                Platform.runLater(() -> {
+                    ts1.setAzimuth(-(double)new_val);
+                    textTSAzimuth.setText(String.format("%8.4f", new_val));
+                });
             }
         });
-        //textTSAzimuth.textProperty().bind(sliderTSAzimuth.valueProperty().asString("%04.1f"));
-
-
 
         sliderTSElevation.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
             if (new_val != null) {
-                Platform.runLater(() -> ts1.setElevation((double)new_val));
+                Platform.runLater(() -> {
+                    ts1.setElevation((double)new_val);
+                    textTSElevation.setText(String.format("%9.4f", new_val));
+                });
             }
         });
+
+        setupSliderFine(sliderAzimuth, sliderAzimuthFine);
+        setupSliderFine(sliderElevation, sliderElevationFine);
+        setupSliderFine(sliderTSAzimuth, sliderTSAzimuthFine);
+        setupSliderFine(sliderTSElevation, sliderTSElevationFine);
+
+//        {
+//            sliderAzimuthFine.setOnMousePressed(mouseEvent -> {
+//                sliderAnchor = sliderAzimuth.getValue();
+//            });
+//
+//            sliderAzimuthFine.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
+//                if (new_val != null && new_val.doubleValue() != 0.) {
+//                    double newAzimuth = sliderAnchor + sliderAzimuthFine.getValue();
+//                    while (newAzimuth > 360.) newAzimuth -= 360.;
+//                    while (newAzimuth < 0.) newAzimuth += 360.;
+//                    sliderAzimuth.setValue(newAzimuth);
+//                }
+//            });
+//
+//            sliderAzimuthFine.valueChangingProperty().addListener((obs, wasChanging, isNowChanging) -> {
+//                if (!isNowChanging) {
+//                    sliderAzimuthFine.setValue(0.);
+//                }
+//            });
+//        }
         //textTSElevation.textProperty().bind(sliderTSElevation.valueProperty().asString("%04.1f"));
     }
 
@@ -301,6 +362,17 @@ public class MainController implements Initializable {
         } catch (NumberFormatException ex) {
         }
 
+    }
+
+    private void setSliderFine(Slider sliderCoase, Slider sliderFine) {
+        sliderFine.setMin(Math.max(sliderCoase.getValue() - 1.0, 0.0));
+        sliderFine.setMax(Math.min(sliderCoase.getValue() + 1.0, 360.0));
+        sliderFine.setValue(sliderCoase.getValue());
+    }
+
+    @FXML
+    private void onSliderFineDragDone(DragEvent ev) {
+        ((Slider)ev.getSource()).setValue(0.);
     }
 
     /**
