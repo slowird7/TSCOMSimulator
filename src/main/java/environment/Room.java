@@ -1,15 +1,12 @@
 package environment;
 
 import javafx.application.Platform;
-import javafx.beans.InvalidationListener;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableObjectValue;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point3D;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Sphere;
@@ -23,10 +20,10 @@ import java.util.List;
 public class Room {
     private final static Logger LOGGER = LogManager.getLogger(Room.class);
     public static Room INSTANCE;
-    private static final double R = 500.;
+    private static final double R = 400.;
     private static final double X_MAX = 15.0 * R;
-    private static final double X_MIN = -0.0 * R;
-    private static final double Y_MAX = 0.0 * R;
+    private static final double X_MIN = -5.0 * R;
+    private static final double Y_MAX = 5.0 * R;
     private static final double Y_MIN = -10.0 * R;
     private static final double Z_MAX = 6.0 * R;
     private static final double Z_MIN = -1.0 * R;
@@ -36,7 +33,7 @@ public class Room {
     final public Group node;
     final public ObjectProperty<Point3D> intersection;
 
-    private Sphere prizum;
+    private Sphere spot;
 
     Room() {
         ts = TS.getInstance();
@@ -53,12 +50,12 @@ public class Room {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if (newValue && intersection.get() != null) {
-                    prizum.setTranslateX(intersection.get().getX());
-                    prizum.setTranslateY(intersection.get().getY());
-                    prizum.setTranslateZ(intersection.get().getZ());
-                    prizum.setVisible(true);
+                    spot.setTranslateX(intersection.get().getX());
+                    spot.setTranslateY(intersection.get().getY());
+                    spot.setTranslateZ(intersection.get().getZ());
+                    spot.setVisible(true);
                 } else {
-                    prizum.setVisible(false);
+                    spot.setVisible(false);
                 }
             }
         });
@@ -66,10 +63,10 @@ public class Room {
         node = new Group();
         faces.stream().forEach(face ->
                 node.getChildren().add(face.node));
-        prizum = new Sphere(0.05 * R);
-        prizum.setMaterial(new PhongMaterial(Color.RED));
-        prizum.setVisible(false);
-        node.getChildren().add(prizum);
+        spot = new Sphere(0.05 * R);
+        spot.setMaterial(new PhongMaterial(Color.RED));
+        spot.setVisible(false);
+        node.getChildren().add(spot);
 
 
     }
