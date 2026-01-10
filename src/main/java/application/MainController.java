@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.input.ZoomEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -32,6 +33,8 @@ import java.util.ResourceBundle;
 //import com.interactivemesh.jfx.importer.obj.ObjModelImporter;
 
 public class MainController implements Initializable {
+    @FXML
+    AnchorPane mainContainer;
     @FXML
     Button btnConnect;
     @FXML
@@ -170,13 +173,13 @@ public class MainController implements Initializable {
         makeAxis(group);
         // オブジェクトを生成・配置
         makeObjects(group);
-        hBox.getChildren().remove(subScene);
-        subScene = new SubScene(group, 600, 600, true, SceneAntialiasing.BALANCED);
-        subScene.setFill(Color.LIGHTGREY);
+//        hBox.getChildren().remove(subScene);
+//        subScene = new SubScene(group, 600, 600, true, SceneAntialiasing.BALANCED);
+        subScene.setFill(Color.CYAN);
         subScene.setDepthTest(DepthTest.ENABLE);
         subScene.setRoot(group);
         subScene.setCamera(camera);
-        hBox.getChildren().add(subScene);
+//        hBox.getChildren().add(subScene);
 
 
         handleSliders();
@@ -185,6 +188,16 @@ public class MainController implements Initializable {
         sliderTSAzimuth.valueProperty().bindBidirectional(ts.getAngleHDMSProperty());
         sliderTSElevation.valueProperty().bindBidirectional(ts.getAngleVDMSProperty());
 
+        // SubSceneの親コンテナのサイズ変更を監視
+        mainContainer.widthProperty().addListener((obs, oldVal, newVal) -> {
+            double newWidth = newVal.doubleValue();
+            subScene.setWidth(newWidth);
+        });
+
+        mainContainer.heightProperty().addListener((obs, oldVal, newVal) -> {
+            double newHeight = newVal.doubleValue();
+            subScene.setHeight(newHeight);
+        });
     }
 
     private void makeObjects(Group group) {
