@@ -1,10 +1,12 @@
 package application;
 
 import environment.Room;
+import environment.Target;
 import exception.TSNotConnectedException;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Point3D;
 import javafx.scene.*;
@@ -26,7 +28,9 @@ import ts.TS;
 import ts.TSInterface;
 import ts.TS_3DModel;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 //import com.interactivemesh.jfx.importer.ImportException;
@@ -100,6 +104,8 @@ public class MainController implements Initializable {
     private Slider sliderTSElevationFine;
     @FXML
     private HBox hBox;
+    @FXML
+    private Button btnAddTarget;
 
     // camera translation control variables
     private double azimuthRotateAngle = 0.0;
@@ -148,8 +154,59 @@ public class MainController implements Initializable {
 
     }
 
+    @FXML
+    private void onBtnAddTargetClicked() {
+        try {
+            // Load the dialog FXML
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/application/TargetDialog.fxml"));
+            Pane dialogContent = loader.load();
+            
+            // Create and configure the dialog
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setTitle("ターゲットの作成");
+            dialog.getDialogPane().setContent(dialogContent);
+            
+            // Get the controller and set the dialog
+            TargetDialogController controller = loader.getController();
+            controller.setDialog(dialog);
+            
+            // Show the dialog and wait for user input
+            Optional<ButtonType> result = dialog.showAndWait();
+            
+            // Process the result
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                if (controller.validateInput()) {
+                    // Create a new target
+                    String name = controller.getName();
+                    Point3D position = controller.getPosition();
+                    Point3D direction = controller.getDirection();
+                    
+                    if (position != null) {
+                        // Create and add the target
+                        Target target = new Target();
+                        target.createTarget(name, position, direction);
+                        
+                        // TODO: Add the target to your 3D scene
+                        // You'll need to implement this part based on your 3D rendering setup
+                        
+                        System.out.println("Created target: " + name + " at " + position);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Show error dialog
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("エラー");
+            alert.setHeaderText("ターゲットの作成中にエラーが発生しました");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+    }
+    
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL location, ResourceBundle resources) {
         ts = TS.getInstance();
         conn = new TSInterface(ts);
 

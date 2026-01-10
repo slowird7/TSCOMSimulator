@@ -37,7 +37,10 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="btnConnect" mnemonicParsing="false" onAction="#onBtnConnectClicked" text="接続" />
+                  <HBox spacing="5">
+                     <Button fx:id="btnConnect" mnemonicParsing="false" onAction="#onBtnConnectClicked" text="接続" />
+                     <Button fx:id="btnAddTarget" mnemonicParsing="false" onAction="#onBtnAddTargetClicked" text="ターゲット追加" />
+                  </HBox>
                   <ComboBox fx:id="txtCOMPort" editable="true" promptText="COM2" GridPane.rowIndex="1" />
                   <Button fx:id="btnCollimate" mnemonicParsing="false" onAction="#onBtnCollimateClicked" text="視準" GridPane.columnIndex="2" GridPane.columnSpan="2" />
                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="59.0" text="X [m]" GridPane.columnIndex="1" GridPane.rowIndex="1" />
