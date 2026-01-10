@@ -24,15 +24,14 @@ class Face {
     Pane node;
     Paint paint;
 
-    public Face(String name, Point3D[] points) {
-        this.name = name;
-        for (int i = 0; i < 4; i++) {
-            vertex[i] = new Point3D(points[i].getX(), points[i].getY(), points[i].getZ());
-        }
-        normalVector = vertex[1].subtract(vertex[0]).crossProduct(vertex[2].subtract(vertex[0])).normalize();
-        node = makeNode();
-    }
-
+    /**
+     * Point3D v1, v2,v3, v4 を頂点とする Face を作成する
+     * @param name
+     * @param v1
+     * @param v2
+     * @param v3
+     * @param v4
+     */
     public Face(String name, Point3D v1, Point3D v2, Point3D v3, Point3D v4) {
         this.name = name;
         Point3D[] points = new Point3D[]{v1, v2, v3, v4};
@@ -43,6 +42,14 @@ class Face {
         node = makeNode();
     }
 
+    /**
+     * ... 何をしようとしているのかよく分からない
+     * @param name
+     * @param v1
+     * @param v2
+     * @param v3
+     * @param v4
+     */
     public Face(String name, double[] v1, double[] v2, double[] v3, double[] v4) {
         this.name = name;
         Point3D[] points = new Point3D[]{new Point3D(v1[0], v1[1], v1[2]), new Point3D(v2[0], v2[1], v2[2]), new Point3D(v3[0], v3[1], v3[2]), new Point3D(v4[0], v4[1], v4[2])};
@@ -53,6 +60,17 @@ class Face {
         node = makeNode();
     }
 
+    /** 線分(x1,y1)-(x2,y2) の上に立つ　高さ(z1～z2) の垂直な壁を作る
+     *
+     * @param name
+     * @param x1 直線
+     * @param y1
+     * @param x2
+     * @param y2
+     * @param z_top
+     * @param z_bottom
+     * @param paint
+     */
     public Face(String name, double x1, double y1, double x2, double y2, double z_top, double z_bottom, Paint paint) {
         this.name = name;
         vertex[0] = new Point3D(x1, y1, z_bottom);
@@ -64,6 +82,16 @@ class Face {
         node = makeNode();
     }
 
+    /**
+     * 矩形 (x1,y1)-(x2,y2) の床や天井を作る
+     * @param name
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     * @param z
+     * @param paint
+     */
     public Face(String name, double x1, double y1, double x2, double y2, double z, Paint paint) {
         this.name = name;
         vertex[0] = new Point3D(x1, y1, z);
