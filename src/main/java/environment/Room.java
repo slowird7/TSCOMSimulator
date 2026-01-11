@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 public class Room extends FaceSet {
     private final static Logger LOGGER = LogManager.getLogger(Room.class);
     public static Room INSTANCE;
-    private static final double R = 400.;
+    public static final double R = 400.;
     private static final double X_MAX = 15.0;
     private static final double X_MIN = -5.0;
     private static final double Y_MAX = 5.0;

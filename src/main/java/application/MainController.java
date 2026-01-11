@@ -31,10 +31,13 @@ import ts.TS;
 import ts.TSInterface;
 import ts.TS_3DModel;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.Optional;
+import java.util.Properties;
 import java.util.ResourceBundle;
+
+import static environment.Room.R;
 
 //import com.interactivemesh.jfx.importer.ImportException;
 //import com.interactivemesh.jfx.importer.obj.ObjModelImporter;
@@ -177,9 +180,9 @@ public class MainController implements Initializable {
     private void onBtnKikaiClicked()
     {
         ts.setKikai(new PointData(Double.parseDouble(txtKikaiX.getText()), Double.parseDouble(txtKikaiY.getText()), Double.parseDouble(txtKikaiZ.getText())));
-        tsLocation.setX(Double.parseDouble(txtKikaiX.getText()));
-        tsLocation.setY(Double.parseDouble(txtKikaiY.getText()));
-        tsLocation.setZ(Double.parseDouble(txtKikaiZ.getText()));
+        tsLocation.setZ(Double.parseDouble(txtKikaiX.getText()) * R); // +Y が変わる
+        tsLocation.setX(-Double.parseDouble(txtKikaiY.getText()) * R); // +Z がが割る
+        tsLocation.setY(-Double.parseDouble(txtKikaiZ.getText()) * R);   // +X
 
     }
 
@@ -305,6 +308,19 @@ public class MainController implements Initializable {
             double newHeight = newVal.doubleValue();
             subScene.setHeight(newHeight);
         });
+
+        mainContainer.sceneProperty().addListener((observable, oldScene, newScene) -> {
+            if (newScene != null) {
+                newScene.windowProperty().addListener((obs, oldWindow, newWindow) -> {
+                    if (newWindow != null) {
+                        newWindow.setOnCloseRequest(event -> saveSettings());
+                    }
+                });
+            }
+        });
+
+        // Load settings
+        loadSettings();
     }
 
     private void makeObjects(Group group) {
@@ -433,28 +449,6 @@ public class MainController implements Initializable {
         setupSliderFine(sliderElevation, sliderElevationFine);
         setupSliderFine(sliderTSAzimuth, sliderTSAzimuthFine);
         setupSliderFine(sliderTSElevation, sliderTSElevationFine);
-
-//        {
-//            sliderAzimuthFine.setOnMousePressed(mouseEvent -> {
-//                sliderAnchor = sliderAzimuth.getValue();
-//            });
-//
-//            sliderAzimuthFine.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
-//                if (new_val != null && new_val.doubleValue() != 0.) {
-//                    double newAzimuth = sliderAnchor + sliderAzimuthFine.getValue();
-//                    while (newAzimuth > 360.) newAzimuth -= 360.;
-//                    while (newAzimuth < 0.) newAzimuth += 360.;
-//                    sliderAzimuth.setValue(newAzimuth);
-//                }
-//            });
-//
-//            sliderAzimuthFine.valueChangingProperty().addListener((obs, wasChanging, isNowChanging) -> {
-//                if (!isNowChanging) {
-//                    sliderAzimuthFine.setValue(0.);
-//                }
-//            });
-//        }
-        //textTSElevation.textProperty().bind(sliderTSElevation.valueProperty().asString("%04.1f"));
     }
 
     private void handleMouseOnSubscene() {
@@ -466,7 +460,7 @@ public class MainController implements Initializable {
             double zoomFactor = 1.05;
             double deltaY = event.getDeltaY();
 
-            if (deltaY < 0){
+            if (deltaY > 0){
                 zoomFactor = 0.95;
             }
             forward *= zoomFactor;
@@ -487,45 +481,83 @@ public class MainController implements Initializable {
 
     }
 
-    private void setSliderFine(Slider sliderCoase, Slider sliderFine) {
-        sliderFine.setMin(Math.max(sliderCoase.getValue() - 1.0, 0.0));
-        sliderFine.setMax(Math.min(sliderCoase.getValue() + 1.0, 360.0));
-        sliderFine.setValue(sliderCoase.getValue());
-    }
-
     @FXML
     private void onSliderFineDragDone(DragEvent ev) {
         ((Slider)ev.getSource()).setValue(0.);
     }
 
-    /**
-     * URL指定でOBJファイルからメッシュを作成する
-     * @param url
-     * @return
+    private void saveSettings() {
+        Properties props = new Properties();
 
-    public Node createModelFromObj( String url )
-    {
-        // 戻り値の3Dモデルグループを作成
-        Group   root   = new Group();
-
-        // 3Dモデルのインポーターを作成
-        ObjModelImporter    importer    = new ObjModelImporter();
-
-        // インポータにモデル・ファイルを設定
-        try{
-            importer.read( url );
-        }catch( ImportException e ){
-            e.printStackTrace();
+        // Save COM port
+        if (txtCOMPort.getValue() != null) {
+            props.setProperty("comPort", txtCOMPort.getValue());
         }
 
-        // 3Dモデルを取込
-        Node[]  meshes  = importer.getImport();
-        root.getChildren().addAll( meshes );
+        // Save camera position
+        props.setProperty("camera.x", String.valueOf(right));
+        props.setProperty("camera.y", String.valueOf(down));
+        props.setProperty("camera.z", String.valueOf(forward));
+        props.setProperty("camera.azimuth", String.valueOf(azimuthRotateAngle));
+        props.setProperty("camera.elevation", String.valueOf(elevationRotateAngle));
 
-        // インポータを閉じる
-        importer.close();
+        // Save TS position
+//        props.setProperty("", String.valueOf());
 
-        return root;
+        // Save to file
+        try (OutputStream output = new FileOutputStream("settings.properties")) {
+            props.store(output, "TSCOMSimulator Settings");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    */
+
+    private void loadSettings() {
+        Properties props = new Properties();
+        File settingsFile = new File("settings.properties");
+
+        if (settingsFile.exists()) {
+            try (InputStream input = new FileInputStream(settingsFile)) {
+                props.load(input);
+
+                // Load COM port
+                String comPort = props.getProperty("comPort");
+                if (comPort != null) {
+                    txtCOMPort.setValue(comPort);
+                }
+
+                // Load camera position
+                String x = props.getProperty("camera.x");
+                String y = props.getProperty("camera.y");
+                String z = props.getProperty("camera.z");
+                String azimuth = props.getProperty("camera.azimuth");
+                String elevation = props.getProperty("camera.elevation");
+
+                if (x != null) right = Double.parseDouble(x);
+                if (y != null) down = Double.parseDouble(y);
+                if (z != null) forward = Double.parseDouble(z);
+                if (azimuth != null) azimuthRotateAngle = Double.parseDouble(azimuth);
+                if (elevation != null) elevationRotateAngle = Double.parseDouble(elevation);
+
+                // Update camera position
+                //updateCameraPosition();
+                setTranslates();
+                setAzimuthRotate();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    private void updateCameraPosition() {
+        translateXY.setX(right);
+        translateXY.setY(down);
+        translateZ.setZ(forward);
+        azimuthRotate.setAngle(-azimuthRotateAngle);
+        elevationRotate.setAngle(-elevationRotateAngle);
+    }
+
+
 }

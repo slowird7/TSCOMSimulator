@@ -5,6 +5,7 @@ module application {
     requires jssc;
     requires org.jetbrains.annotations;
     requires java.xml;
+    requires java.prefs;
 //    requires jimObjModelImporterJFX;
 
 
