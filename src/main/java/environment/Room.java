@@ -1,43 +1,31 @@
 package environment;
 
 import javafx.application.Platform;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point3D;
-import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Sphere;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ts.TS;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Room {
+public class Room extends FaceSet {
     private final static Logger LOGGER = LogManager.getLogger(Room.class);
     public static Room INSTANCE;
     private static final double R = 400.;
-    private static final double X_MAX = 15.0 * R;
-    private static final double X_MIN = -5.0 * R;
-    private static final double Y_MAX = 5.0 * R;
-    private static final double Y_MIN = -10.0 * R;
-    private static final double Z_MAX = 6.0 * R;
-    private static final double Z_MIN = -1.0 * R;
+    private static final double X_MAX = 15.0;
+    private static final double X_MIN = -5.0;
+    private static final double Y_MAX = 5.0;
+    private static final double Y_MIN = -10.0;
+    private static final double Z_MAX = 6.0;
+    private static final double Z_MIN = -1.0;
 
-    private TS ts;
-    private List<Face> faces;
-    final public Group node;
-    final public ObjectProperty<Point3D> intersection;
 
     private Sphere spot;
 
     Room() {
-        ts = TS.getInstance();
-        faces = new ArrayList<>();
+        super();
 //        faces.add(new Face("", X_MIN, Y_MIN, X_MAX, Y_MAX, Z_MIN, Z_MAX));
 //        faces.add(new Face("bottom", X_MIN, Y_MIN, X_MAX, Y_MIN, Z_MIN, Z_MAX));
         faces.add(new Face("right", X_MAX, Y_MAX, X_MIN, Y_MAX, Z_MIN, Z_MAX, Color.RED));
@@ -45,7 +33,6 @@ public class Room {
         faces.add(new Face("front", X_MIN, Y_MAX, X_MIN, Y_MIN,  Z_MIN, Z_MAX, Color.YELLOW));
         faces.add(new Face("back", X_MAX, Y_MIN, X_MAX, Y_MAX, Z_MIN, Z_MAX, Color.GREEN));
 //        faces.add(new Face("ceil", X_MIN, Y_MIN, X_MAX, Y_MAX, Z_MAX, Color.PINK));
-        intersection = new SimpleObjectProperty<>();
         ts.getIsMeasuringProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
@@ -60,23 +47,30 @@ public class Room {
             }
         });
 
-        node = new Group();
         faces.stream().forEach(face ->
-                node.getChildren().add(face.node));
+                nodes.getChildren().add(face.node));
         spot = new Sphere(0.05 * R);
         spot.setMaterial(new PhongMaterial(Color.RED));
         spot.setVisible(false);
-        node.getChildren().add(spot);
+        nodes.getChildren().add(spot);
 
 
     }
 
-    public void makeNode(Group group) {
-        faces.stream().forEach(face ->
-                group.getChildren().add(face.makeNode()));
+    public Double getDistance() {
+        double distance = super.getDistance();
+        if (intersection.get() != null) {
+            spot.setTranslateX(intersection.get().getX() * R);
+            spot.setTranslateY(intersection.get().getY() * R);
+            spot.setTranslateZ(intersection.get().getZ() * R);
+            spot.setVisible(true);
+        } else {
+            spot.setVisible(false);
+        }
+        return distance;
     }
 
-    public static Room getInstance() {
+        public static Room getInstance() {
         if (INSTANCE == null){
             INSTANCE = new Room();
         }
@@ -87,22 +81,5 @@ public class Room {
         this();
     }
 
-    public Double getDistance() {
-        final double[] distance = {Double.POSITIVE_INFINITY};
-        faces.stream().forEach(face -> {
-            intersection.set(face.intersection(ts.getKikai().getPoint3D(), ts.getDirection()));
-            if (intersection.get() != null) {
-                Platform.runLater(()->{
-
-                });
-                double d = intersection.get().distance(ts.getKikai().getPoint3D());
-                if (d < distance[0]) {
-                    distance[0] = d;
-                }
-            }
-        });
-
-        return distance[0];
-    }
 
 }

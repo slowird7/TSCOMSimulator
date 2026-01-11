@@ -14,9 +14,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
-class Face {
+public class Face {
     private final static Logger LOGGER = LogManager.getLogger(Face.class);
-
+    private static final double R = 400.;
     String name;
     Point3D normalVector;
     Point3D footPoint;
@@ -105,11 +105,11 @@ class Face {
 
     public Pane makeNode() {
         Pane pane =new Pane();
-        pane.setLayoutX(vertex[0].getX());
-        pane.setLayoutY(vertex[0].getY());
+        pane.setLayoutX(vertex[0].getX() * R);
+        pane.setLayoutY(vertex[0].getY() * R);
 
-        double width = vertex[1].distance(vertex[2]);
-        double height = vertex[0].distance(vertex[1]);
+        double width = vertex[1].distance(vertex[2]) * R;
+        double height = vertex[0].distance(vertex[1]) * R;
         Shape shape = new Rectangle(0., -height, width, height);
         shape.setFill(paint);
         shape.setOpacity(0.2);
@@ -117,7 +117,7 @@ class Face {
         Text label = new Text(0., 0., name);
 //        label.setLayoutX(vertex[0].getX());
 //        label.setLayoutY(vertex[0].getY());
-        label.setFont( Font.font( 500 ) );
+        label.setFont( Font.font( R ) );
         label.setOpacity(0.5);
         pane.getChildren().add(label);
         double deg = Math.toDegrees(Math.atan2(vertex[2].getY() - vertex[1].getY(), vertex[2].getX() - vertex[1].getX()));
@@ -125,7 +125,7 @@ class Face {
 //        label.getTransforms().add(new Rotate(180, axis));
         pane.getTransforms().add(new Rotate(-90, axis));
         pane.getTransforms().add(new Rotate(deg, Rotate.Z_AXIS));
-        //node.getTransforms().add(new Rotate(normalVector, vertex[0].getX(), vertex[0].getY()));
+        //nodes.getTransforms().add(new Rotate(normalVector, vertex[0].getX(), vertex[0].getY()));
         return pane;
     }
 

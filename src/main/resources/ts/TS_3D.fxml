@@ -33,7 +33,7 @@
                         <Point3D x="1.0" />
                      </rotationAxis>
                   </Cylinder>
-                  <Line fx:id="axisX" endX="1000.0" fill="RED" layoutX="100.0" layoutY="100.0" rotate="90.0" smooth="false" startX="-1000.0" stroke="RED" strokeWidth="5.0" visible="false">
+                  <Line fx:id="axisX" endX="2000.0" fill="RED" layoutX="100.0" layoutY="100.0" rotate="90.0" smooth="false" startX="-2000.0" stroke="RED" strokeWidth="5.0" visible="false">
                      <rotationAxis>
                         <Point3D y="1.0" />
                      </rotationAxis>

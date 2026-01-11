@@ -4,6 +4,7 @@ module application {
     requires org.apache.logging.log4j;
     requires jssc;
     requires org.jetbrains.annotations;
+    requires java.xml;
 //    requires jimObjModelImporterJFX;
 
 

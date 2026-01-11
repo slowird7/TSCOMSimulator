@@ -2,6 +2,7 @@ package application;
 
 import environment.Room;
 import environment.Target;
+import environment.Targets;
 import exception.TSNotConnectedException;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
@@ -23,6 +24,8 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Translate;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import point.PointData;
 import ts.TS;
 import ts.TSInterface;
@@ -40,7 +43,9 @@ public class MainController implements Initializable {
     @FXML
     AnchorPane mainContainer;
     @FXML
-    Button btnConnect;
+    MenuItem btnConnect;
+    @FXML
+    private Button btnMeasure;
     @FXML
     ComboBox<String> txtCOMPort;
     @FXML
@@ -121,10 +126,34 @@ public class MainController implements Initializable {
     // objects
     private TS_3DModel ts1, ts2;
     private Room room;
+    private Targets targets;
     private TS ts;
     private final Translate tsLocation = new Translate(0, 0, 0); // TS location
 
     TSInterface conn;
+
+    @FXML
+    private void handleShowTargets() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/application/TargetsDialog.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.initOwner(mainContainer.getScene().getWindow());
+            stage.initModality(Modality.NONE);
+            stage.setTitle("ターゲットリスト");
+            stage.setScene(new Scene(root));
+
+            TargetsDialogController controller = loader.getController();
+            controller.setDialogStage(stage);
+            controller.setTargets(targets);
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private void onBtnConnectClicked()
@@ -134,13 +163,13 @@ public class MainController implements Initializable {
                 if (!conn.open(txtCOMPort.getValue())) {
                     throw new TSNotConnectedException("COMポート" + txtCOMPort.getValue() + "に接続できません");
                 }
-                btnConnect.setText("Close");
+                btnConnect.setText("TS切断");
             } catch (TSNotConnectedException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         } else {
             conn.close();
-            btnConnect.setText("connect");
+            btnConnect.setText("TS接続");
         }
     }
 
@@ -184,8 +213,7 @@ public class MainController implements Initializable {
                     
                     if (position != null) {
                         // Create and add the target
-                        Target target = new Target();
-                        target.createTarget(name, position, direction);
+                        targets.createTarget(name, position, direction);
                         
                         // TODO: Add the target to your 3D scene
                         // You'll need to implement this part based on your 3D rendering setup
@@ -204,13 +232,22 @@ public class MainController implements Initializable {
             alert.showAndWait();
         }
     }
-    
+
+    @FXML
+    private void onBtnMeasureClicked() {
+        TS ts = TS.getInstance();
+        boolean newState = !ts.isMeasuring();
+        ts.getIsMeasuringProperty().set(newState);
+        btnMeasure.setStyle(newState ? "-fx-background-color: lightgreen;" : "");
+        if (newState) room.getDistance();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ts = TS.getInstance();
         conn = new TSInterface(ts);
 
-        txtCOMPort.setValue("COM2");
+        txtCOMPort.setValue("COM6");
 
         PerspectiveCamera camera = new PerspectiveCamera(true);
         camera.setNearClip(100); // The default value is 0.1
@@ -230,14 +267,27 @@ public class MainController implements Initializable {
         makeAxis(group);
         // オブジェクトを生成・配置
         makeObjects(group);
-//        hBox.getChildren().remove(subScene);
-//        subScene = new SubScene(group, 600, 600, true, SceneAntialiasing.BALANCED);
-        subScene.setFill(Color.CYAN);
-        subScene.setDepthTest(DepthTest.ENABLE);
-        subScene.setRoot(group);
-        subScene.setCamera(camera);
-//        hBox.getChildren().add(subScene);
 
+        // subScene 作成
+        mainContainer.getChildren().remove(subScene);
+        SubScene o = subScene;
+        subScene = new SubScene(group, o.getWidth(), o.getHeight(), true, SceneAntialiasing.BALANCED);
+        subScene.setFill(Color.WHITE);
+        subScene.setDepthTest(DepthTest.ENABLE);
+        subScene.setCamera(camera);
+
+        mainContainer.getChildren().add(subScene);
+        // Clear existing constraints first
+        AnchorPane.clearConstraints(subScene);
+        // Set the constraints (0 for top, right, bottom, left means it will fill the AnchorPane)
+        AnchorPane.setTopAnchor(subScene, 225.0);
+        AnchorPane.setRightAnchor(subScene, 0.0);
+        AnchorPane.setBottomAnchor(subScene, 0.0);
+        AnchorPane.setLeftAnchor(subScene, 0.0);
+        //        hBox.getChildren().add(subScene);
+
+        // Add this in the initialize() method
+        btnMeasure.setStyle(TS.getInstance().isMeasuring() ? "-fx-background-color: lightgreen;" : "");
 
         handleSliders();
         handleMouseOnSubscene();
@@ -262,11 +312,14 @@ public class MainController implements Initializable {
         ts1.node.getTransforms().add(new Rotate(90., new Point3D(0., 1., 0.)));
         ts1.node.getTransforms().add(new Scale(1., 1., 1.));
         ts1.node.getTransforms().add(tsLocation);
-//        ts1.node.getTransforms().add(new Rotate(180., new Point3D(0, 0., 0.)));
+//        ts1.nodes.getTransforms().add(new Rotate(180., new Point3D(0, 0., 0.)));
         group.getChildren().add(ts1.node);
 
         room = Room.getInstance();
-        group.getChildren().add(room.node);
+        group.getChildren().add(room.nodes);
+        targets= new Targets();
+        group.getChildren().add(targets.nodes);
+
     }
 
     private void makeAxis(Group group) {

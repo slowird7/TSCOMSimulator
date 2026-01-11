@@ -5,6 +5,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,10 +19,34 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane fx:id="mainContainer" prefHeight="727.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <HBox prefHeight="208.0" prefWidth="898.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <MenuBar layoutY="2.0" prefHeight="24.0" prefWidth="898.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="ファイル">
+            <items>
+                  <MenuItem fx:id="btnConnect" mnemonicParsing="false" onAction="#onBtnConnectClicked" text="TS接続" />
+              <MenuItem mnemonicParsing="false" text="閉じる" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="編集">
+            <items>
+              <MenuItem mnemonicParsing="false" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="表示">
+              <items>
+                <MenuItem fx:id="menuShowTargets" mnemonicParsing="false" onAction="#handleShowTargets" text="ターゲットリスト" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="ヘルプ">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox prefHeight="208.0" prefWidth="898.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
          <children>
             <GridPane prefHeight="301.0" prefWidth="261.0">
               <columnConstraints>
@@ -28,6 +55,7 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="10.0" prefWidth="50.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="10.0" prefWidth="36.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="10.0" prefWidth="75.0" />
+                  <ColumnConstraints />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -37,10 +65,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <HBox spacing="5">
-                     <Button fx:id="btnConnect" mnemonicParsing="false" onAction="#onBtnConnectClicked" text="接続" />
-                     <Button fx:id="btnAddTarget" mnemonicParsing="false" onAction="#onBtnAddTargetClicked" text="ターゲット追加" />
-                  </HBox>
+                  <HBox spacing="5" />
                   <ComboBox fx:id="txtCOMPort" editable="true" promptText="COM2" GridPane.rowIndex="1" />
                   <Button fx:id="btnCollimate" mnemonicParsing="false" onAction="#onBtnCollimateClicked" text="視準" GridPane.columnIndex="2" GridPane.columnSpan="2" />
                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="59.0" text="X [m]" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -58,6 +83,8 @@
                   <TextField fx:id="txtKikaiY" alignment="CENTER_RIGHT" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                   <TextField fx:id="txtKikaiZ" alignment="CENTER_RIGHT" GridPane.columnIndex="4" GridPane.rowIndex="3" />
                   <TextField fx:id="txtAngleA" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                  <Button fx:id="btnAddTarget" mnemonicParsing="false" onAction="#onBtnAddTargetClicked" text="ターゲット追加" GridPane.rowIndex="2" />
+                  <Button fx:id="btnMeasure" mnemonicParsing="false" onAction="#onBtnMeasureClicked" text="測定" GridPane.rowIndex="3" />
                </children>
             </GridPane>
             <VBox fx:id="vBoxTranslate" prefHeight="208.0" prefWidth="202.0">

@@ -68,26 +68,8 @@ public class TargetDialogController {
         DialogPane dialogPane = dialog.getDialogPane();
 
         // Set the button types
-        ButtonType createButtonType = new ButtonType("作成", ButtonData.OK_DONE);
-        dialogPane.getButtonTypes().setAll(createButtonType, ButtonType.CANCEL);
+        dialogPane.getButtonTypes().setAll(ButtonType.OK, ButtonType.CANCEL);
 
-        // Enable/Disable create button depending on whether a name was entered
-        Button createButton = (Button) dialogPane.lookupButton(createButtonType);
-        createButton.setDisable(true);
-
-        // Add validation listener
-        nameField.textProperty().addListener((observable, oldValue, newValue) -> {
-            createButton.setDisable(newValue.trim().isEmpty());
-        });
-
-        // Handle create button action
-        createButton.setOnAction(event -> {
-            if (validateInput()) {
-                dialog.setResult(createButtonType);
-            } else {
-                event.consume(); // Prevent dialog from closing
-            }
-        });
     }
 
     private void setupNumericField(TextField field) {

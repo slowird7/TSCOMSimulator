@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<targets>
+  <target>
+    <name>CP1</name>
+    <coord x="9.0" y="0.0" z="1.0"/>
+    <norm x="1.0" y="0.0" z="0.0"/>
+  </target>
+  <target>
+    <name>CP2</name>
+    <coord x="9.0" y="-2.0" z="1.0"/>
+    <norm x="1.0" y="0.0" z="0.0"/>
+  </target>
+</targets>
