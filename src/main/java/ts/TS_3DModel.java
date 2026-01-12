@@ -13,6 +13,7 @@ import javafx.scene.shape.Box;
 import javafx.scene.shape.Cylinder;
 import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
+import javafx.scene.PerspectiveCamera;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,9 +45,11 @@ public class TS_3DModel implements Initializable {
     @FXML
     public Cylinder lenz;
     @FXML
-    public Box finder;
+    public Box sight;
     @FXML
     public Line axisX;
+    
+    private PerspectiveCamera finderCamera;
 
     private final Rotate rotateBaseH = new Rotate(0, 100., 0., 0., new Point3D(0., -1., 0.));
     private final Rotate rotateBaseV = new Rotate(0., 0., 100., 0., new Point3D(1., 0., 0.));
@@ -90,6 +93,20 @@ public class TS_3DModel implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Initialize camera
+        finderCamera = new PerspectiveCamera(true);
+        finderCamera.setNearClip(0.1);
+        finderCamera.setFarClip(10000);
+        finderCamera.setFieldOfView(60);
+        
+        // Position camera at the center of the lens
+        finderCamera.translateXProperty().bind(lenz.translateXProperty());
+        finderCamera.translateYProperty().bind(lenz.translateYProperty());
+        finderCamera.translateZProperty().bind(lenz.translateZProperty());
+        
+        // Add camera to the scene
+        baseVCoord.getChildren().add(finderCamera);
+
         base.setMaterial(greyPhongMaterial);
         table.setMaterial(goldPhongMaterial);
         columnL.setMaterial(greyPhongMaterial);
@@ -98,7 +115,7 @@ public class TS_3DModel implements Initializable {
         eyepiece.setMaterial(greyPhongMaterial);
         telescope.setMaterial(greyPhongMaterial);
         lenz.setMaterial(blackPhongMaterial);
-        finder.setMaterial(blackPhongMaterial);
+        sight.setMaterial(blackPhongMaterial);
         baseHCoord.getTransforms().addAll(rotateBaseH);
         baseVCoord.getTransforms().addAll(rotateBaseV);
 
@@ -110,6 +127,10 @@ public class TS_3DModel implements Initializable {
 
     public void setElevation(double elevation_DEG) {
         rotateBaseV.setAngle(90 - elevation_DEG);
+    }
+    
+    public PerspectiveCamera getFinderCamera() {
+        return finderCamera;
     }
 
     public void LazerOn() {
