@@ -1,17 +1,20 @@
-<!-- FinderView.fxml -->
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.Scene?>
 <?import javafx.scene.SubScene?>
-<?import javafx.scene.PerspectiveCamera?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.transform.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="application.FinderViewController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="application.FinderViewController">
     <center>
-        <SubScene fx:id="finderView" width="800" height="600" />
+      <Pane fx:id="subSceneContainer">
+         <children>
+              <SubScene fx:id="finderView" depthTest="ENABLE" height="240" width="320">
+                  <root>
+                      <Region />
+                  </root>
+              </SubScene>
+         </children>
+      </Pane>
     </center>
 </BorderPane>

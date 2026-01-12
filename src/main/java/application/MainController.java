@@ -136,6 +136,41 @@ public class MainController implements Initializable {
     TSInterface conn;
 
     @FXML
+    private void handleShowFinder() {
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/FinderView.fxml"));
+            Parent root = loader.load();
+            
+            // Get the controller and set the TS_3DModel
+            FinderViewController controller = loader.getController();
+            if (ts1 != null) {
+                controller.setTSModel(ts1);
+            }
+            
+            // Create the dialog
+            Stage dialog = new Stage();
+            dialog.setTitle("ファインダー");
+            dialog.initModality(Modality.NONE);
+            dialog.initOwner(mainContainer.getScene().getWindow());
+            
+            // Set the scene and show the dialog
+            Scene scene = new Scene(root);
+            dialog.setScene(scene);
+            dialog.show();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Show error message
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("エラー");
+            alert.setHeaderText(null);
+            alert.setContentText("ファインダーを開くことができませんでした。");
+            alert.showAndWait();
+        }
+    }
+    
+    @FXML
     private void handleShowTargets() {
         try {
             FXMLLoader loader = new FXMLLoader();

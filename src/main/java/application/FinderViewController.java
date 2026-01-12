@@ -51,7 +51,7 @@ public class FinderViewController {
 
     public void setTSModel(TS_3DModel tsModel) {
         this.tsModel = tsModel;
-        subScene.setCamera(tsModel.getFinderCamera());
+//        subScene.setCamera(tsModel.getFinderCamera());
     }
 
     public void addToScene(Group node) {

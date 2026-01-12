@@ -37,6 +37,7 @@
             <Menu mnemonicParsing="false" text="表示">
               <items>
                 <MenuItem fx:id="menuShowTargets" mnemonicParsing="false" onAction="#handleShowTargets" text="ターゲットリスト" />
+                <MenuItem fx:id="menuShowFinder" mnemonicParsing="false" onAction="#handleShowFinder" text="ファインダー" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="ヘルプ">
